@@ -19,7 +19,7 @@ public class Main extends Application {
 			primaryStage.setResizable(false);
 			Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
 			primaryStage.setTitle("Effort Logger V2.0.");
-			primaryStage.setScene(new Scene(root, 550, 370));
+			primaryStage.setScene(new Scene(root, 600, 400));
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
