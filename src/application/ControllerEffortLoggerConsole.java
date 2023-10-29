@@ -7,6 +7,10 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 
 public class ControllerEffortLoggerConsole {
+	
+	public ControllerEffortLoggerConsole() {
+		
+	}
 
 	@FXML
 	private Button logout;
