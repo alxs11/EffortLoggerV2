@@ -17,6 +17,15 @@ public class ControllerEffortLoggerConsole {
 	
 	public void logoutUser(ActionEvent event) throws IOException {
 		Main m = new Main();
-		m.changeScene("effortLoggerPageTwo.fxml");
+		m.changeScene("LoginPage.fxml");
 	}
+	
+	@FXML
+	private Button next;
+	
+	public void nextPage(ActionEvent event) throws IOException {
+		Main m1 = new Main();
+		m1.changeScene("effortLoggerPageTwo.fxml");
+	}
+
 }
