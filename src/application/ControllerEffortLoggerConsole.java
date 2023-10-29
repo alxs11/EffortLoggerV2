@@ -1,3 +1,4 @@
+// console functionality by Jake
 package application;
 
 import javafx.event.ActionEvent;
@@ -9,6 +10,20 @@ import java.io.IOException;
 public class ControllerEffortLoggerConsole {
 	
 	public ControllerEffortLoggerConsole() {
+		
+	}
+	
+	@FXML
+	private Button newActivity;
+	
+	public void newActivity(ActionEvent event) throws IOException {
+		
+	}
+	
+	@FXML
+	private Button stopActivity;
+	
+	public void stopActivity(ActionEvent event) throws IOException {
 		
 	}
 
