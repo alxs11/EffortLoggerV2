@@ -6,9 +6,9 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 
-public class ControllerEffortLoggerConsole {
+public class ControllerEffortLoggerPageThree {
 	
-	public ControllerEffortLoggerConsole() {
+	public ControllerEffortLoggerPageThree() {
 		
 	}
 
@@ -16,6 +16,15 @@ public class ControllerEffortLoggerConsole {
 	private Button logout;
 	
 	public void logoutUser(ActionEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("LoginPage.fxml");
+	}
+
+
+	@FXML
+	private Button previous;
+	
+	public void prevPage(ActionEvent event) throws IOException {
 		Main m = new Main();
 		m.changeScene("effortLoggerPageTwo.fxml");
 	}
