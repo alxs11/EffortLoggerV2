@@ -12,8 +12,8 @@
    <children>
       <ButtonBar prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #cccccc;">
         <buttons>
-            <Button layoutX="535.0" layoutY="47.0" mnemonicParsing="false" text="Next" />
             <Button fx:id="previous" mnemonicParsing="false" onAction="#prevPage" text="Previous" />
+            <Button layoutX="535.0" layoutY="47.0" mnemonicParsing="false" text="Next" />
           <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutUser" text="Signout" />
         </buttons>
       </ButtonBar>
