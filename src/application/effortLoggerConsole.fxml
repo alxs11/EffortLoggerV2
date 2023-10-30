@@ -17,7 +17,7 @@
       <ButtonBar prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #cccccc;">
          <buttons>
             <Button fx:id="next" mnemonicParsing="false" onAction="#nextPage" text="Next" />
-            <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutUser" text="Sign Out" />
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutUser" text="Signout" />
          </buttons></ButtonBar>
       <Button fx:id="newActivity" layoutX="87.0" layoutY="131.0" mnemonicParsing="false" onAction="#newActivity" text="New Activity" />
       <Button fx:id="stopActivity" layoutX="86.0" layoutY="170.0" mnemonicParsing="false" onAction="#stopActivity" text="Stop Activity" />

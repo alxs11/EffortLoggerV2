@@ -8,19 +8,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
+import java.time.Instant;
 
 import java.io.IOException;
 
 public class ControllerEffortLoggerConsole {
 	
-	public ControllerEffortLoggerConsole() {
-		
-	}
+	public ControllerEffortLoggerConsole() {}
 	
 	public Timer timer;
 	public int seconds;
+	public int logNumber = 0;
+	List<EffortLog> logs = new ArrayList<EffortLog>();
 	
 	@FXML
 	private void initialize() {
@@ -62,17 +62,16 @@ public class ControllerEffortLoggerConsole {
 		effortCategory.getItems().add("Defects");
 		effortCategory.getItems().add("Others");
 		
-		deliverable.getItems().add("item-name");
-//		Conceptual Design								
-//		Detailed Design								
-//		Test Cases								
-//		Solution								
-//		Reflection								
-//		Outline								
-//		Draft								
-//		Report								
-//		User Defined								
-//		Other								
+		deliverable.getItems().add("Conceptual Design");
+		deliverable.getItems().add("Detailed Design");
+		deliverable.getItems().add("Test Cases");
+		deliverable.getItems().add("Solution");						
+		deliverable.getItems().add("Reflection");
+		deliverable.getItems().add("Outline");
+		deliverable.getItems().add("Draft");
+		deliverable.getItems().add("Report");
+//		deliverable.getItems().add("User Defined");	
+		deliverable.getItems().add("Other");
 	}
 	
 	@FXML
@@ -107,16 +106,22 @@ public class ControllerEffortLoggerConsole {
 		employeeList.setDisable(false);
 		
 		timer.cancel();
+		
+		// save effort log
+		EffortLog e = new EffortLog(++logNumber, Instant.now(), seconds, 
+				projectType.getValue(), lifeCycleStep.getValue(), 
+				effortCategory.getValue(), deliverable.getValue());
+		logs.add(e);
 	}
 	
 	@FXML
-	private ChoiceBox projectType;
+	private ChoiceBox<String> projectType;
 	@FXML
-	private ChoiceBox lifeCycleStep;
+	private ChoiceBox<String> lifeCycleStep;
 	@FXML
-	private ChoiceBox effortCategory;
+	private ChoiceBox<String> effortCategory;
 	@FXML
-	private ChoiceBox deliverable;
+	private ChoiceBox<String> deliverable;
 	
 	@FXML
 	private Label elapsedTime;

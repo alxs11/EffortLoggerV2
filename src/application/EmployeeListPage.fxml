@@ -19,7 +19,7 @@
       <ButtonBar prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #cccccc;">
          <buttons>
             <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" text="Previous" />
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#signOut" text="Sign out" />
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#signOut" text="Signout" />
          </buttons>
       </ButtonBar>
    </children>
