@@ -4,5 +4,5 @@ module EffortLoggerV2 {
 	requires javafx.fxml;
 	requires java.logging;
 	
-	opens application to javafx.graphics, javafx.fxml;
+	opens application to javafx.graphics, javafx.fxml, javafx.base;
 }

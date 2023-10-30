@@ -28,5 +28,6 @@
       <ChoiceBox layoutX="330.0" layoutY="200.0" prefWidth="150.0" />
       <ChoiceBox layoutX="330.0" layoutY="236.0" prefWidth="150.0" />
       <Label layoutX="91.0" layoutY="301.0" text="Elapsed Time:" />
+      <Button fx:id="employeeList" layoutX="439.0" layoutY="359.0" mnemonicParsing="false" onAction="#employeeListPage" prefHeight="26.0" prefWidth="133.0" text="List of Employees" />
    </children>
 </AnchorPane>
