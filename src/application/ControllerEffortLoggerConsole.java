@@ -25,7 +25,54 @@ public class ControllerEffortLoggerConsole {
 	@FXML
 	private void initialize() {
 		stopActivity.setDisable(true);
-		projectType.getItems().add("item-name");
+		
+		projectType.getItems().add("Business Project");
+		projectType.getItems().add("Development Project");
+		
+		lifeCycleStep.getItems().add("Problem Understanding");
+		lifeCycleStep.getItems().add("Conceptual Design Plan");
+		lifeCycleStep.getItems().add("Requirements");
+		lifeCycleStep.getItems().add("Conceptual Design");
+		lifeCycleStep.getItems().add("Conceptual Design Review");
+		lifeCycleStep.getItems().add("Detailed Design Plan");
+		lifeCycleStep.getItems().add("Detailed Design/Prototype");
+		lifeCycleStep.getItems().add("Detailed Design Review");
+		lifeCycleStep.getItems().add("Implementation Plan");
+		lifeCycleStep.getItems().add("Test Case Generation");
+		lifeCycleStep.getItems().add("Solution Specification");
+		lifeCycleStep.getItems().add("Solution Review");
+		lifeCycleStep.getItems().add("Solution Implementation");
+		lifeCycleStep.getItems().add("Unit/System Test");
+		lifeCycleStep.getItems().add("Reflection");
+		lifeCycleStep.getItems().add("Repository Update");
+		lifeCycleStep.getItems().add("Planning");
+		lifeCycleStep.getItems().add("Information Gathering");
+		lifeCycleStep.getItems().add("Information Understanding");
+		lifeCycleStep.getItems().add("Verifying");
+		lifeCycleStep.getItems().add("Outlining");
+		lifeCycleStep.getItems().add("Drafting");
+		lifeCycleStep.getItems().add("Finalizing");
+		lifeCycleStep.getItems().add("Team Meeting");
+		lifeCycleStep.getItems().add("Coach Meeting");
+		lifeCycleStep.getItems().add("Stakeholder Meeting");
+		
+		effortCategory.getItems().add("Plans");
+		effortCategory.getItems().add("Deliverables");
+		effortCategory.getItems().add("Interruptions");
+		effortCategory.getItems().add("Defects");
+		effortCategory.getItems().add("Others");
+		
+		deliverable.getItems().add("item-name");
+		Conceptual Design								
+		Detailed Design								
+		Test Cases								
+		Solution								
+		Reflection								
+		Outline								
+		Draft								
+		Report								
+		User Defined								
+		Other								
 	}
 	
 	@FXML
@@ -60,6 +107,12 @@ public class ControllerEffortLoggerConsole {
 	
 	@FXML
 	private ChoiceBox projectType;
+	@FXML
+	private ChoiceBox lifeCycleStep;
+	@FXML
+	private ChoiceBox effortCategory;
+	@FXML
+	private ChoiceBox deliverable;
 	
 	@FXML
 	private Label elapsedTime;

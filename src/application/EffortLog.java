@@ -1,40 +1,37 @@
 // by Jake
 package application;
+import java.util.Date;
+import java.time.Instant;
 
 public class EffortLog {
- // Instance Variables
- String name;
- String breed;
- int age;
- String color;
+	int number;
+	Instant date;
+	int seconds;
+	String projectType;
+	String lifeCycleStep;
+	String effortCategory;
+	String deliverable;
 
- // Constructor Declaration of Class
- public EffortLog(String name, String breed, int age,
-            String color)
- {
-     this.name = name;
-     this.breed = breed;
-     this.age = age;
-     this.color = color;
- }
+	// Constructor Declaration of Class
+	public EffortLog(int number, Instant date, int seconds, String projectType, String lifeCycleStep,
+			 String effortCategory, String deliverable) {
+		this.number = number;
+		this.date = date;
+		this.projectType = projectType;
+		this.lifeCycleStep = lifeCycleStep;
+		this.effortCategory = effortCategory;
+		this.deliverable = deliverable;
+	 }
 
- // method 1
- public String getName() { return name; }
+	 public int getNumber() { return number; }
+	 public Instant getDate() { return date; }
+	 public int getSeconds() { return seconds; }
+	 public String getProjectType() { return projectType; }
+	 public String getLifeCycleStep() { return lifeCycleStep; }
+	 public String getEffortCategory() { return effortCategory; }
+	 public String getDeliverable() { return deliverable; }
 
- // method 2
- public String getBreed() { return breed; }
-
- // method 3
- public int getAge() { return age; }
-
- // method 4
- public String getColor() { return color; }
-
- @Override public String toString()
- {
-     return ("Hi my name is " + this.getName()
-             + ".\nMy breed,age and color are "
-             + this.getBreed() + "," + this.getAge()
-             + "," + this.getColor());
- }
+	 @Override public String toString() {
+		 return("");
+	}
 }
