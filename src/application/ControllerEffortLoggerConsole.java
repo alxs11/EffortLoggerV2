@@ -80,6 +80,10 @@ public class ControllerEffortLoggerConsole {
 	public void newActivity(ActionEvent event) throws IOException {
 		newActivity.setDisable(true);
 		stopActivity.setDisable(false);
+		next.setDisable(true);
+		logout.setDisable(true);
+		employeeList.setDisable(true);
+		
 		seconds = 0;
 		updateLabel();
 		timer = new Timer();
@@ -91,8 +95,6 @@ public class ControllerEffortLoggerConsole {
 			}
 		};
 		timer.scheduleAtFixedRate(task, 1000, 1000);
-		next.setDisable(true);
-		logout.setDisable(true);
 	}
 	
 	@FXML
@@ -100,9 +102,11 @@ public class ControllerEffortLoggerConsole {
 	public void stopActivity(ActionEvent event) throws IOException {
 		newActivity.setDisable(false);
 		stopActivity.setDisable(true);
-		timer.cancel();
 		next.setDisable(false);
 		logout.setDisable(false);
+		employeeList.setDisable(false);
+		
+		timer.cancel();
 	}
 	
 	@FXML
@@ -148,10 +152,8 @@ public class ControllerEffortLoggerConsole {
 	
 	@FXML
 	private Button employeeList;
-	
 	public void employeeListPage(ActionEvent event) throws IOException {
 		Main m2 = new Main();
 		m2.changeScene("EmployeeListPage.fxml");
 	}
-
 }
