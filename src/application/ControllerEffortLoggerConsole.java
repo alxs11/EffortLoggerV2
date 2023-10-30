@@ -19,13 +19,15 @@ public class ControllerEffortLoggerConsole {
 	
 	public Timer timer;
 	public int seconds;
+	
 	public int logNumber = 0;
 	List<EffortLog> logs = new ArrayList<EffortLog>();
 	
 	@FXML
 	private void initialize() {
-		stopActivity.setDisable(true);
+		stopActivity.setDisable(true); // disables timer stop button until timer is started
 		
+		// set default dropdown values:
 		projectType.getItems().add("Business Project");
 		projectType.getItems().add("Development Project");
 		
@@ -74,15 +76,18 @@ public class ControllerEffortLoggerConsole {
 		deliverable.getItems().add("Other");
 	}
 	
+	// stopwatch start button:
 	@FXML
 	private Button newActivity;
 	public void newActivity(ActionEvent event) throws IOException {
+		stopActivity.setDisable(false); // enables stopwatch stop button
+		// disable buttons to leave page so no data is lost:
 		newActivity.setDisable(true);
-		stopActivity.setDisable(false);
 		next.setDisable(true);
 		logout.setDisable(true);
 		employeeList.setDisable(true);
 		
+		// start stopwatch:
 		seconds = 0;
 		updateLabel();
 		timer = new Timer();
@@ -96,24 +101,27 @@ public class ControllerEffortLoggerConsole {
 		timer.scheduleAtFixedRate(task, 1000, 1000);
 	}
 	
+	// stopwatch stop button: 
 	@FXML
 	private Button stopActivity;
 	public void stopActivity(ActionEvent event) throws IOException {
+		stopActivity.setDisable(true); // disables this button
+		// enable buttons to leave page:
 		newActivity.setDisable(false);
-		stopActivity.setDisable(true);
 		next.setDisable(false);
 		logout.setDisable(false);
 		employeeList.setDisable(false);
 		
-		timer.cancel();
+		timer.cancel(); // terminates stopwatch, value is saved in public int seconds
 		
-		// save effort log
+		// save this effort log to logs list:
 		EffortLog e = new EffortLog(++logNumber, Instant.now(), seconds, 
 				projectType.getValue(), lifeCycleStep.getValue(), 
 				effortCategory.getValue(), deliverable.getValue());
 		logs.add(e);
 	}
 	
+	// declare dropdowns:
 	@FXML
 	private ChoiceBox<String> projectType;
 	@FXML
@@ -131,6 +139,7 @@ public class ControllerEffortLoggerConsole {
 		});
 	}
 	
+	// take int seconds and return a string in the format of "00:00:00":
 	public static String formatTime(int seconds) {
 	    int hours = seconds / 3600;
 	    int minutes = (seconds % 3600) / 60;
@@ -141,6 +150,7 @@ public class ControllerEffortLoggerConsole {
 	    return formattedTime;
 	}
 
+	// back to login screen:
 	@FXML
 	private Button logout;
 	public void logoutUser(ActionEvent event) throws IOException {
@@ -148,6 +158,7 @@ public class ControllerEffortLoggerConsole {
 		m.changeScene("LoginPage.fxml");
 	}
 	
+	// next page:
 	@FXML
 	private Button next;
 	public void nextPage(ActionEvent event) throws IOException {
@@ -155,6 +166,7 @@ public class ControllerEffortLoggerConsole {
 		m1.changeScene("effortLoggerPageTwo.fxml");
 	}
 	
+	// open employee list database for testing:
 	@FXML
 	private Button employeeList;
 	public void employeeListPage(ActionEvent event) throws IOException {
