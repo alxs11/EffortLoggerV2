@@ -16,8 +16,8 @@
       </Label>
       <ButtonBar prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #cccccc;">
          <buttons>
-            <Button fx:id="next" mnemonicParsing="false" onAction="#nextPage" prefHeight="27.0" prefWidth="90.0" text="Next" />
-            <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutUser" prefHeight="27.0" prefWidth="89.0" text="Sign Out" />
+            <Button fx:id="next" mnemonicParsing="false" onAction="#nextPage" text="Next" />
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutUser" text="Sign Out" />
          </buttons></ButtonBar>
       <Button fx:id="newActivity" layoutX="87.0" layoutY="131.0" mnemonicParsing="false" onAction="#newActivity" text="New Activity" />
       <Button fx:id="stopActivity" layoutX="86.0" layoutY="170.0" mnemonicParsing="false" onAction="#stopActivity" text="Stop Activity" />
