@@ -33,6 +33,11 @@ public class ControllerEffortLoggerPageThree {
 	protected int memberFivePoints;
 	protected int memberSixPoints;
 	protected int[] memberPoints;
+	static int rounds = 4;
+	static int avg;
+	static int length;
+	static int mean;
+	static int sd;
 
 	public void logoutUser(ActionEvent event) throws IOException {
 		Main m = new Main();
@@ -50,7 +55,6 @@ public class ControllerEffortLoggerPageThree {
 	}
 
 	public void submitPoints(ActionEvent event) throws IOException {
-		System.out.print("yes");
 		memberPoints = new int[]{
 		((int) memberOne.getValue()),
 		(int) memberTwo.getValue(),
@@ -67,9 +71,64 @@ public class ControllerEffortLoggerPageThree {
 		memberFivePoints = (int) memberFive.getValue();
 		memberSixPoints = (int) memberSix.getValue();
 	    ArrayList<Integer> memberPoints = new ArrayList<Integer>();
+	    ArrayList<Integer> pointsFinal = new ArrayList<Integer>();
+
 	    memberPoints.add(memberOnePoints);
 	    memberPoints.add(memberTwoPoints);
-	    System.out.print(memberPoints);
+	    memberPoints.add(memberThreePoints);
+	    memberPoints.add(memberFourPoints);
+	    memberPoints.add(memberFivePoints);
+	    memberPoints.add(memberSixPoints);
+	    int sum = 0;
+	    if (rounds > 1) {	
+		    for (double i : memberPoints) {
+		        sum += i;
+		    }		    
+		    length = memberPoints.size();
+		    mean = sum / length;
+		    sd = 0;
+		    for (double num : memberPoints) {
+		        sd += Math.pow(num - mean, 2);
+		    }
+		    sd =  (int) Math.sqrt(sd / length);
+		    System.out.print(memberPoints);
+		    
+			Main m = new Main();
+			rounds -= 1;
+			System.out.print(sd);
+			m.changeScene("effortLoggerScore.fxml");
+		}
+	    else {
+		    for (int i: memberPoints) {
+		    	if(i > mean - sd && i < mean + sd) {
+		    		pointsFinal.add(i);
+		    	}
+		    }
+	    	for (double i : pointsFinal) {
+		        sum += i;
+		    }
+		    length = pointsFinal.size();
+		    mean = sum / length;
+
+
+		    
+		    
+			Main m = new Main();
+			rounds -= 1;
+			
+			m.changeScene("effortLoggerScore.fxml");
+		}
+
 	}
-	
+	public static int getRounds() {
+		return rounds;
+	}
+	public static int getMean() {
+		return mean;
+	}
+	public static void setRounds (int round) {
+		rounds = round;
+	}
+
+
 }

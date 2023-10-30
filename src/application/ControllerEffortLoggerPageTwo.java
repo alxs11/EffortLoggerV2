@@ -77,8 +77,6 @@ public class ControllerEffortLoggerPageTwo implements Initializable {
 		i = (int) TimeSlider.getValue();
 		TextTimer.setText(String.valueOf(i));
 		
-		
-		
 	}
 	
 	public void SnoozeAction(ActionEvent event) throws IOException {

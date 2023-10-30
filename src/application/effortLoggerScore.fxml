@@ -25,7 +25,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="NextStory" layoutX="306.0" layoutY="203.0" mnemonicParsing="false" text="Next Story" />
+      <Button fx:id="NextStory" layoutX="306.0" layoutY="203.0" mnemonicParsing="false" onAction="#nextStory" text="Next Story" />
       <Button fx:id="tryAgain" layoutX="93.0" layoutY="203.0" mnemonicParsing="false" onAction="#tryAgain" text="Try Again" />
       <Text layoutX="263.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Round" />
       <Text fx:id="round" layoutX="306.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="20.0" />
