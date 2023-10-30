@@ -1,4 +1,4 @@
-// by Jake
+// by Jake Gresh
 package application;
 import java.time.Instant;
 

@@ -21,13 +21,13 @@ public class ControllerEffortLoggerConsole {
 	public int seconds;
 	
 	public int logNumber = 0;
-	List<EffortLog> logs = new ArrayList<EffortLog>();
+	public List<EffortLog> logs = new ArrayList<EffortLog>();
 	
 	@FXML
 	private void initialize() {
 		stopActivity.setDisable(true); // disables timer stop button until timer is started
 		
-		// set default dropdown values:
+		// aligns with design goal: the organization will have the option to set dropdown options:
 		projectType.getItems().add("Business Project");
 		projectType.getItems().add("Development Project");
 		
@@ -100,6 +100,8 @@ public class ControllerEffortLoggerConsole {
 		};
 		timer.scheduleAtFixedRate(task, 1000, 1000);
 	}
+	
+	// aligns with design goal: button disabling means unintended inputs can't be accessed
 	
 	// stopwatch stop button: 
 	@FXML
