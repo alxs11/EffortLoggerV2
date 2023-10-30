@@ -5,11 +5,11 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
 
 import java.io.IOException;
 
@@ -25,6 +25,7 @@ public class ControllerEffortLoggerConsole {
 	@FXML
 	private void initialize() {
 		stopActivity.setDisable(true);
+		projectType.getItems().add("item-name");
 	}
 	
 	@FXML
@@ -43,6 +44,8 @@ public class ControllerEffortLoggerConsole {
 			}
 		};
 		timer.scheduleAtFixedRate(task, 1000, 1000);
+		next.setDisable(true);
+		logout.setDisable(true);
 	}
 	
 	@FXML
@@ -51,7 +54,12 @@ public class ControllerEffortLoggerConsole {
 		newActivity.setDisable(false);
 		stopActivity.setDisable(true);
 		timer.cancel();
+		next.setDisable(false);
+		logout.setDisable(false);
 	}
+	
+	@FXML
+	private ChoiceBox projectType;
 	
 	@FXML
 	private Label elapsedTime;

@@ -1,4 +1,4 @@
-module EffortLogger {
+module effortLoggerV2 {
 	requires javafx.controls;
 	requires javafx.graphics;
 	requires javafx.fxml;
@@ -6,3 +6,5 @@ module EffortLogger {
 	
 	opens application to javafx.graphics, javafx.fxml;
 }
+
+// jake's module-info
