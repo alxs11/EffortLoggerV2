@@ -63,16 +63,16 @@ public class ControllerEffortLoggerConsole {
 		effortCategory.getItems().add("Others");
 		
 		deliverable.getItems().add("item-name");
-		Conceptual Design								
-		Detailed Design								
-		Test Cases								
-		Solution								
-		Reflection								
-		Outline								
-		Draft								
-		Report								
-		User Defined								
-		Other								
+//		Conceptual Design								
+//		Detailed Design								
+//		Test Cases								
+//		Solution								
+//		Reflection								
+//		Outline								
+//		Draft								
+//		Report								
+//		User Defined								
+//		Other								
 	}
 	
 	@FXML

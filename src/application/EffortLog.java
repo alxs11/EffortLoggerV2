@@ -1,6 +1,5 @@
 // by Jake
 package application;
-import java.util.Date;
 import java.time.Instant;
 
 public class EffortLog {
