@@ -18,6 +18,8 @@ public class Main extends Application {
 			stg = primaryStage;
 			primaryStage.setResizable(false);
 			Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+//			launch console on startup for testing:
+//			Parent root = FXMLLoader.load(getClass().getResource("effortLoggerConsole.fxml"));
 			primaryStage.setTitle("Effort Logger V2.0.");
 			primaryStage.setScene(new Scene(root, 600, 400));
 			primaryStage.show();
