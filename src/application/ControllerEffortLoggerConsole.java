@@ -145,5 +145,13 @@ public class ControllerEffortLoggerConsole {
 		Main m1 = new Main();
 		m1.changeScene("effortLoggerPageTwo.fxml");
 	}
+	
+	@FXML
+	private Button employeeList;
+	
+	public void employeeListPage(ActionEvent event) throws IOException {
+		Main m2 = new Main();
+		m2.changeScene("EmployeeListPage.fxml");
+	}
 
 }
