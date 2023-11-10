@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ButtonBar prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #cccccc;">
+      <ButtonBar fx:id="logout" prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #cccccc;">
         <buttons>
           <Button mnemonicParsing="false" text="Next" />
             <Button mnemonicParsing="false" text="Signout" />
@@ -21,9 +21,9 @@
          </opaqueInsets>
       </ButtonBar>
       <Label layoutX="229.0" layoutY="107.0" text="Project Type:" />
-      <ChoiceBox layoutX="331.0" layoutY="103.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="projectTyped" layoutX="331.0" layoutY="103.0" prefWidth="150.0" />
       <Label layoutX="223.0" layoutY="146.0" text="Current Defect:" />
-      <ChoiceBox layoutX="331.0" layoutY="142.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="currentDefect" layoutX="331.0" layoutY="142.0" prefWidth="150.0" />
       <Button layoutX="94.0" layoutY="103.0" mnemonicParsing="false" text="Clear Defect" />
       <Button layoutX="95.0" layoutY="142.0" mnemonicParsing="false" text="New Defect" />
       <Label layoutX="60.0" layoutY="191.0" text="Define\Update Defect:" />
@@ -33,7 +33,7 @@
       <Button layoutX="453.0" layoutY="187.0" mnemonicParsing="false" text="Reopen" />
       <TextArea layoutX="183.0" layoutY="227.0" prefHeight="40.0" prefWidth="333.0" />
       <Label layoutX="60.0" layoutY="238.0" text="Defect Symptoms" />
-      <Label layoutX="119.0" layoutY="38.0" prefHeight="54.0" prefWidth="358.0" text="Effort Logger v2.0. Defct Console">
+      <Label layoutX="119.0" layoutY="38.0" prefHeight="54.0" prefWidth="373.0" text="Effort Logger v2.0. Defect Console">
          <font>
             <Font size="24.0" />
          </font>
@@ -46,6 +46,6 @@
       <ChoiceBox layoutX="385.0" layoutY="303.0" prefWidth="150.0" />
       <Button layoutX="27.0" layoutY="349.0" mnemonicParsing="false" text="Update Current Defect" />
       <Button layoutX="220.0" layoutY="349.0" mnemonicParsing="false" text="Clear Current Defect" />
-      <Button layoutX="396.0" layoutY="349.0" mnemonicParsing="false" text="EffortLogger Console" />
+      <Button fx:id="EffortConsole" layoutX="396.0" layoutY="349.0" mnemonicParsing="false" text="EffortLogger Console" />
    </children>
 </AnchorPane>
