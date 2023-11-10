@@ -142,7 +142,6 @@ public class ControllerEffortLoggerConsole {
 			elapsedTime.setText("Elapsed Time: " + formatTime(seconds));
 		});
 	}
-	
 	// take int seconds and return a string in the format of "00:00:00":
 	public static String formatTime(int seconds) {
 	    int hours = seconds / 3600;

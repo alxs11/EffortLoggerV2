@@ -60,22 +60,22 @@
       </Text>
       <Text layoutX="18.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
          <font>
-            <Font size="16.0" />
+            <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
       <Text layoutX="18.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort and defect log" wrappingWidth="97.60000610351562">
          <font>
-            <Font size="16.0" />
+            <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
       <Text layoutX="27.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planning Poker" wrappingWidth="97.60000610351562">
          <font>
-            <Font size="16.0" />
+            <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
       <Text layoutX="27.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Signout" wrappingWidth="97.60000610351562">
          <font>
-            <Font size="16.0" />
+            <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
    </children>
