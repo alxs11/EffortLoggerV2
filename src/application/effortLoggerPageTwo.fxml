@@ -23,7 +23,7 @@
          </font>
       </Text>
       <TextArea layoutX="19.0" layoutY="117.0" prefHeight="83.0" prefWidth="513.0" text="Various User Stories Go here" />
-      <Text fx:id="TextTimer" layoutX="457.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="75.0">
+      <Text fx:id="TextTimer" layoutX="393.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="202.3333740234375">
          <font>
             <Font size="64.0" />
          </font>

@@ -31,5 +31,6 @@
       <ChoiceBox fx:id="deliverable" layoutX="330.0" layoutY="236.0" prefWidth="150.0" />
       <Label fx:id="elapsedTime" layoutX="91.0" layoutY="301.0" text="Elapsed Time:" />
       <Button fx:id="employeeList" layoutX="439.0" layoutY="359.0" mnemonicParsing="false" onAction="#employeeListPage" prefHeight="26.0" prefWidth="133.0" text="List of Employees" />
+      <Button fx:id="defectbutton" layoutX="308.0" layoutY="359.0" mnemonicParsing="false" onAction="#defectConsole" text="Defect Console" />
    </children>
 </AnchorPane>

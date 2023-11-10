@@ -175,4 +175,12 @@ public class ControllerEffortLoggerConsole {
 		Main m2 = new Main();
 		m2.changeScene("EmployeeListPage.fxml");
 	}
+	
+	@FXML private Button defectbutton;
+	public void defectConsole(ActionEvent event) throws IOException{
+		Main m3 = new Main();
+		m3.changeScene("defectConsole.fxml");
+		
+	}
+	
 }
