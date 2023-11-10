@@ -15,7 +15,7 @@ import java.time.Instant;
 
 import java.io.IOException;
 
-public class ControllerdefectConsole{
+public class ControllerdefectConsole {
 	
 	
 	public ControllerdefectConsole() {}
@@ -30,23 +30,23 @@ public class ControllerdefectConsole{
 		currentDefect.getItems().add("Defect2");
 		currentDefect.getItems().add("Defect3");
 		currentDefect.getItems().add("Defect4");
-		
 	
 	}
+	
 	@FXML
 	private Button logout;
 	
 	public void logoutUser(ActionEvent event) throws IOException {
-		Main m = new Main();
-		m.changeScene("LoginPage.fxml");
+		Main m6 = new Main();
+		m6.changeScene("LoginPage.fxml");
 	}
 	
 	@FXML 
 	private Button EffortConsole;
 
 	public void EffortLoggerConsole(ActionEvent event) throws IOException {
-		Main m2 = new Main();
-		m2.changeScene("effortLoggerConsole.fxml");
+		Main m7 = new Main();
+		m7.changeScene("effortLoggerConsole.fxml");
 	}
 	@FXML
 	private ChoiceBox<String> projectTyped;

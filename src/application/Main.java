@@ -17,7 +17,7 @@ public class Main extends Application {
 		try {
 			stg = primaryStage;
 			primaryStage.setResizable(false);
-			Parent root = FXMLLoader.load(getClass().getResource("defectConsole.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
 //			launch console on startup for testing:
 //			Parent root = FXMLLoader.load(getClass().getResource("effortLoggerConsole.fxml"));
 			primaryStage.setTitle("Effort Logger V2.0.");

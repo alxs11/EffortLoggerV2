@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerdefectConsole">
    <children>
-      <ButtonBar fx:id="logout" prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #cccccc;">
+      <ButtonBar prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #cccccc;">
         <buttons>
           <Button mnemonicParsing="false" text="Next" />
-            <Button mnemonicParsing="false" text="Signout" />
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutUser" text="Signout" />
         </buttons>
          <opaqueInsets>
             <Insets />
@@ -46,6 +46,6 @@
       <ChoiceBox layoutX="385.0" layoutY="303.0" prefWidth="150.0" />
       <Button layoutX="27.0" layoutY="349.0" mnemonicParsing="false" text="Update Current Defect" />
       <Button layoutX="220.0" layoutY="349.0" mnemonicParsing="false" text="Clear Current Defect" />
-      <Button fx:id="EffortConsole" layoutX="396.0" layoutY="349.0" mnemonicParsing="false" text="EffortLogger Console" />
+      <Button fx:id="EffortConsole" layoutX="396.0" layoutY="349.0" mnemonicParsing="false" onAction="#EffortLoggerConsole" text="EffortLogger Console" />
    </children>
 </AnchorPane>
