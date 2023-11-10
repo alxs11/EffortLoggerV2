@@ -171,8 +171,6 @@ public class ControllerEffortLoggerConsole {
 		m1.changeScene("effortLoggerEditor.fxml");
 		System.out.print("editor");
 	}
-
-	
 	// open employee list database for testing:
 	@FXML
 	private Button employeeList;
@@ -185,9 +183,8 @@ public class ControllerEffortLoggerConsole {
 	
 	@FXML private Button defectbutton;
 	public void defectConsole(MouseEvent event) throws IOException{
-		Main m3 = new Main();
-		m3.changeScene("defectConsole.fxml");
-		
+		Main m1 = new Main();
+		m1.changeScene("defectConsole.fxml");
 	}
 	
 }
