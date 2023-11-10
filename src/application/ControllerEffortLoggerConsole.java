@@ -10,24 +10,26 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
+import java.time.Instant;
 
 import java.io.IOException;
 
 public class ControllerEffortLoggerConsole {
 	
-	public ControllerEffortLoggerConsole() {
-		
-	}
+	public ControllerEffortLoggerConsole() {}
 	
 	public Timer timer;
 	public int seconds;
 	
+	public int logNumber = 0;
+	public List<EffortLog> logs = new ArrayList<EffortLog>();
+	
 	@FXML
 	private void initialize() {
-		stopActivity.setDisable(true);
+		stopActivity.setDisable(true); // disables timer stop button until timer is started
 		
+		// aligns with design goal: the organization will have the option to set dropdown options:
 		projectType.getItems().add("Business Project");
 		projectType.getItems().add("Development Project");
 		
@@ -64,24 +66,30 @@ public class ControllerEffortLoggerConsole {
 		effortCategory.getItems().add("Defects");
 		effortCategory.getItems().add("Others");
 		
-		deliverable.getItems().add("item-name");
-//		Conceptual Design								
-//		Detailed Design								
-//		Test Cases								
-//		Solution								
-//		Reflection								
-//		Outline								
-//		Draft								
-//		Report								
-//		User Defined								
-//		Other								
+		deliverable.getItems().add("Conceptual Design");
+		deliverable.getItems().add("Detailed Design");
+		deliverable.getItems().add("Test Cases");
+		deliverable.getItems().add("Solution");						
+		deliverable.getItems().add("Reflection");
+		deliverable.getItems().add("Outline");
+		deliverable.getItems().add("Draft");
+		deliverable.getItems().add("Report");
+//		deliverable.getItems().add("User Defined");	
+		deliverable.getItems().add("Other");
 	}
 	
+	// stopwatch start button:
 	@FXML
 	private Button newActivity;
 	public void newActivity(ActionEvent event) throws IOException {
+		stopActivity.setDisable(false); // enables stopwatch stop button
+		// disable buttons to leave page so no data is lost:
 		newActivity.setDisable(true);
-		stopActivity.setDisable(false);
+		next.setDisable(true);
+		logout.setDisable(true);
+		employeeList.setDisable(true);
+		
+		// start stopwatch:
 		seconds = 0;
 		updateLabel();
 		timer = new Timer();
@@ -93,28 +101,39 @@ public class ControllerEffortLoggerConsole {
 			}
 		};
 		timer.scheduleAtFixedRate(task, 1000, 1000);
-		next.setDisable(true);
-		logout.setDisable(true);
 	}
 	
+	// aligns with design goal: button disabling means unintended inputs can't be accessed
+	
+	// stopwatch stop button: 
 	@FXML
 	private Button stopActivity;
 	public void stopActivity(ActionEvent event) throws IOException {
+		stopActivity.setDisable(true); // disables this button
+		// enable buttons to leave page:
 		newActivity.setDisable(false);
-		stopActivity.setDisable(true);
-		timer.cancel();
 		next.setDisable(false);
 		logout.setDisable(false);
+		employeeList.setDisable(false);
+		
+		timer.cancel(); // terminates stopwatch, value is saved in public int seconds
+		
+		// save this effort log to logs list:
+		EffortLog e = new EffortLog(++logNumber, Instant.now(), seconds, 
+				projectType.getValue(), lifeCycleStep.getValue(), 
+				effortCategory.getValue(), deliverable.getValue());
+		logs.add(e);
 	}
 	
+	// declare dropdowns:
 	@FXML
-	private ChoiceBox projectType;
+	private ChoiceBox<String> projectType;
 	@FXML
-	private ChoiceBox lifeCycleStep;
+	private ChoiceBox<String> lifeCycleStep;
 	@FXML
-	private ChoiceBox effortCategory;
+	private ChoiceBox<String> effortCategory;
 	@FXML
-	private ChoiceBox deliverable;
+	private ChoiceBox<String> deliverable;
 	
 	@FXML
 	private Label elapsedTime;
@@ -124,6 +143,7 @@ public class ControllerEffortLoggerConsole {
 		});
 	}
 	
+	// take int seconds and return a string in the format of "00:00:00":
 	public static String formatTime(int seconds) {
 	    int hours = seconds / 3600;
 	    int minutes = (seconds % 3600) / 60;
@@ -153,6 +173,7 @@ public class ControllerEffortLoggerConsole {
 	}
 
 	
+	// open employee list database for testing:
 	@FXML
 	private Button employeeList;
 	
@@ -161,6 +182,12 @@ public class ControllerEffortLoggerConsole {
 		Main m2 = new Main();
 		m2.changeScene("EmployeeListPage.fxml");
 	}
-
-
+	
+	@FXML private Button defectbutton;
+	public void defectConsole(ActionEvent event) throws IOException{
+		Main m3 = new Main();
+		m3.changeScene("defectConsole.fxml");
+		
+	}
+	
 }
