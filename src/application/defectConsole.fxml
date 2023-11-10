@@ -45,17 +45,17 @@
       <Pane prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;" />
       <Text layoutX="17.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EffortLogger Console" wrappingWidth="97.60000610351562">
          <font>
-            <Font size="16.0" />
+            <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
       <Text layoutX="18.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EffortLogger Editor" wrappingWidth="97.60000610351562">
          <font>
-            <Font size="16.0" />
+            <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
       <Text layoutX="18.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Defect Log Console" wrappingWidth="97.60000610351562">
          <font>
-            <Font size="16.0" />
+            <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
       <Text layoutX="18.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
