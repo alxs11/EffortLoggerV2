@@ -117,7 +117,7 @@ public class ControllerdefectConsole {
 		String stepWhenRemoved = removedStep.getValue();
 		String defectCategory = defectCat.getValue();
 		
-		String[] defectData = new String[] {project,",",  defect,",", defectName,",", defectDisc,",", stepWhenInjected,",", stepWhenRemoved,",", defectCategory};
+		String[] defectData = new String[] {project, defect, defectName, defectDisc, stepWhenInjected, stepWhenRemoved,defectCategory};
 		return defectData;	
 	
 	}
