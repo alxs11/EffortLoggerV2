@@ -184,7 +184,7 @@ public class ControllerEffortLoggerConsole {
 	}
 	
 	@FXML private Button defectbutton;
-	public void defectConsole(ActionEvent event) throws IOException{
+	public void defectConsole(MouseEvent event) throws IOException{
 		Main m3 = new Main();
 		m3.changeScene("defectConsole.fxml");
 		

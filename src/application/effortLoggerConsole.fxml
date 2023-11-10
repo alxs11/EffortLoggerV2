@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerEffortLoggerConsole">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#defectConsole" onMousePressed="#defectConsole" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerEffortLoggerConsole">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="43.0" prefHeight="54.0" prefWidth="358.0" text="Effort Logger v2.0. Console">
          <font>
@@ -56,7 +56,7 @@
                   <Font name="Corbel Light" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="18.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Defect Log Console" wrappingWidth="97.60000610351562">
+            <Text layoutX="18.0" layoutY="155.0" onMouseClicked="#defectConsole" onMousePressed="#defectConsole" strokeType="OUTSIDE" strokeWidth="0.0" text="Defect Log Console" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
@@ -72,6 +72,11 @@
                </font>
             </Text>
             <Text layoutX="17.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Console" wrappingWidth="97.60000610351562">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="17.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Stories" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
