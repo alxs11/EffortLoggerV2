@@ -7,12 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.util.*;
 import java.time.Instant;
-
-
-
+import java.awt.TextArea;
 import java.io.IOException;
 
 public class ControllerdefectConsole {
@@ -107,6 +106,22 @@ public class ControllerdefectConsole {
 		Main m7 = new Main();
 		m7.changeScene("effortLoggerConsole.fxml");
 	}
+	
+	public String[] newDefect (ActionEvent event) throws IOException {
+		
+		String project = projectTyped.getValue();
+		String defect =  currentDefect.getValue();
+		String defectName = defectText.getText();
+		String defectDisc = defectSymp.getText();
+		String stepWhenInjected = injectedStep.getValue();
+		String stepWhenRemoved = removedStep.getValue();
+		String defectCategory = defectCat.getValue();
+		
+		String[] defectData = new String[] {project,",",  defect,",", defectName,",", defectDisc,",", stepWhenInjected,",", stepWhenRemoved,",", defectCategory};
+		return defectData;	
+	
+	}
+	
 	@FXML
 	private ChoiceBox<String> projectTyped;
 	@FXML
@@ -117,6 +132,10 @@ public class ControllerdefectConsole {
 	private ChoiceBox<String> removedStep;
 	@FXML
 	private ChoiceBox<String> defectCat;
+	@FXML
+    private TextField defectSymp;
+    @FXML
+    private TextField defectText;
 	
 	
 	
