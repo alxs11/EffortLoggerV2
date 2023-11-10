@@ -1,17 +1,15 @@
+// by kaleb
 package application;
 
 import javafx.event.ActionEvent;
-
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
 
-public class ControllerEffortLoggerScore {
+public class ControllerPPScores {
 	
-	public ControllerEffortLoggerScore() {
+	public ControllerPPScores() {
 	}
 
 	@FXML private Button logout;
@@ -23,8 +21,8 @@ public class ControllerEffortLoggerScore {
 
 	public void initialize() {
 		
-		round.setText(""+ ControllerEffortLoggerPageThree.getRounds());
-		score.setText("" + ControllerEffortLoggerPageThree.getMean());
+		round.setText(""+ ControllerPPVoting.getRounds());
+		score.setText("" + ControllerPPVoting.getMean());
 
 	}
 	public void logoutUser(ActionEvent event) throws IOException {
@@ -32,23 +30,20 @@ public class ControllerEffortLoggerScore {
 		m.changeScene("LoginPage.fxml");
 	}
 	public void nextPage(ActionEvent event) throws IOException {
-		Main m1 = new Main();
-		m1.changeScene("effortLoggerPageThree.fxml");
-		
 	}
 	public void prevPage(ActionEvent event) throws IOException {
 		Main m2 = new Main();
-		m2.changeScene("effortLoggerPageThree.fxml");
+		m2.changeScene("effortLoggerVoting.fxml");
 	}
 	public void tryAgain(ActionEvent event) throws IOException {
-		if (ControllerEffortLoggerPageThree.getRounds() != 0) {
+		if (ControllerPPVoting.getRounds() != 0) {
 			Main m1 = new Main();
-			m1.changeScene("effortLoggerPageThree.fxml");
+			m1.changeScene("effortLoggerScore.fxml");
 		}
 	}
 	public void nextStory(ActionEvent event) throws IOException {
 		Main m2 = new Main();
-		ControllerEffortLoggerPageThree.setRounds(4);
-		m2.changeScene("effortLoggerPageTwo.fxml");
+		ControllerPPVoting.setRounds(4);
+		m2.changeScene("effortLoggerStory.fxml");
 	}
 }

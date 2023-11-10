@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -132,26 +134,33 @@ public class ControllerEffortLoggerConsole {
 	    return formattedTime;
 	}
 
-	@FXML
-	private Button logout;
-	public void logoutUser(ActionEvent event) throws IOException {
+	@FXML private Button logout;
+	public void logoutUser(MouseEvent event) throws IOException {
 		Main m = new Main();
 		m.changeScene("LoginPage.fxml");
 	}
 	
-	@FXML
-	private Button next;
-	public void nextPage(ActionEvent event) throws IOException {
+	@FXML private Text next;
+	public void nextPage(MouseEvent mouse) throws IOException {
 		Main m1 = new Main();
-		m1.changeScene("effortLoggerPageTwo.fxml");
+		m1.changeScene("effortLoggerStory.fxml");
 	}
+	@FXML
+	public void changeToEditor(MouseEvent mouse) throws IOException {
+		Main m1 = new Main();
+		m1.changeScene("effortLoggerEditor.fxml");
+		System.out.print("editor");
+	}
+
 	
 	@FXML
 	private Button employeeList;
 	
+	@FXML
 	public void employeeListPage(ActionEvent event) throws IOException {
 		Main m2 = new Main();
 		m2.changeScene("EmployeeListPage.fxml");
 	}
+
 
 }

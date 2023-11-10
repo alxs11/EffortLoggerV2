@@ -5,36 +5,49 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerLogin">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerLogin">
    <children>
-      <AnchorPane layoutX="-1.0" prefHeight="370.0" prefWidth="550.0">
+      <Pane layoutY="-1.0" prefHeight="131.0" prefWidth="900.0" style="-fx-background-color: #dddddd;">
          <children>
-            <Label layoutX="130.0" layoutY="35.0" text="Effort Logger v2.0.">
+            <Label layoutX="273.0" layoutY="45.0" text="Effort Logger v2.0">
                <font>
-                  <Font size="36.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="password" layoutX="251.0" layoutY="181.0" promptText="Password" />
-            <TextField fx:id="username" layoutX="251.0" layoutY="147.0" promptText="Username" />
-            <Label layoutX="168.0" layoutY="150.0" text="Username:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="167.0" layoutY="184.0" prefHeight="18.0" prefWidth="66.0" text="Password:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Button fx:id="button" layoutX="251.0" layoutY="232.0" mnemonicParsing="false" onAction="#loginUser" prefHeight="26.0" prefWidth="85.0" text="Login" />
-            <Label fx:id="badCredentials" layoutX="251.0" layoutY="108.0">
-               <font>
-                  <Font size="14.0" />
+                  <Font name="SansSerif Regular" size="32.0" />
                </font>
             </Label>
          </children>
-      </AnchorPane>
+      </Pane>
+      <PasswordField fx:id="password" layoutX="310.0" layoutY="269.0" promptText="Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <TextField fx:id="username" layoutX="310.0" layoutY="202.0" promptText="Username">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="200.0" layoutY="197.0" prefHeight="40.0" prefWidth="110.0" text="Username :">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="200.0" layoutY="269.0" prefHeight="30.0" prefWidth="110.0" text="Password :">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="button" layoutX="450.0" layoutY="365.0" mnemonicParsing="false" onAction="#loginUser" prefHeight="26.0" prefWidth="85.0" text="Login">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="badCredentials" layoutX="251.0" layoutY="108.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerPPStories">
+   <children>
+      <ButtonBar prefHeight="38.0" prefWidth="800.0" style="-fx-background-color: #cccccc;">
+        <buttons>
+            <Button fx:id="next" layoutX="535.0" layoutY="47.0" mnemonicParsing="false" onAction="#nextPage" text="Next" />
+            <Button fx:id="previous" mnemonicParsing="false" onAction="#prevPage" text="Previous" />
+          <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutUser" text="Signout" />
+        </buttons>
+      </ButtonBar>
+      <Text layoutX="71.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Stories">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextArea layoutX="99.0" layoutY="144.0" prefHeight="83.0" prefWidth="513.0" text="Various User Stories Go here" />
+      <Text fx:id="TextTimer" layoutX="620.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="75.0">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+      <Button fx:id="Start" layoutX="627.0" layoutY="317.0" mnemonicParsing="false" onAction="#StartTimer" text="Start Timer" />
+      <Button fx:id="Snooze" layoutX="637.0" layoutY="358.0" mnemonicParsing="false" onAction="#SnoozeAction" text="Snooze" />
+      <Slider fx:id="TimeSlider" blockIncrement="1.0" layoutX="250.0" layoutY="248.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" value="1.0" />
+      <Slider fx:id="SnoozeSlider" blockIncrement="1.0" layoutX="250.0" layoutY="311.0" majorTickUnit="5.0" max="10.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" />
+      <Text layoutX="93.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Constraint" wrappingWidth="102.54296875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="93.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Snooze Value" wrappingWidth="102.54296875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

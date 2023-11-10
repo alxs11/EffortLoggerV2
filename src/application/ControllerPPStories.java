@@ -1,3 +1,5 @@
+//author Ahmad Samara
+
 package application;
 
 
@@ -29,20 +31,20 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class ControllerEffortLoggerPageTwo implements Initializable {
+public class ControllerPPStories implements Initializable {
 	
 	@FXML private Button logout;
 	@FXML private Button next;
 	@FXML private Button previous;
-	@FXML private Text TextTimer;
+	@FXML private Text TextTimer; // countdown timer
     @FXML private Button Snooze;
     @FXML private Button Start;
-    @FXML private Slider SnoozeSlider;
-    @FXML private Slider TimeSlider;
+    @FXML private Slider SnoozeSlider; //snooze time value
+    @FXML private Slider TimeSlider; //timer value
     boolean value = true;
 
     Main m3 = new Main();
-    int i = 100;
+    int i = 100; //start time before restarting
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
     	
@@ -71,12 +73,9 @@ public class ControllerEffortLoggerPageTwo implements Initializable {
 		}
 	}
     
-    
-
 	public void StartTimer(ActionEvent event) throws IOException {
 		i = (int) TimeSlider.getValue();
-		TextTimer.setText(String.valueOf(i));
-		
+		TextTimer.setText(String.valueOf(i));	
 	}
 	
 	public void SnoozeAction(ActionEvent event) throws IOException {
@@ -88,15 +87,12 @@ public class ControllerEffortLoggerPageTwo implements Initializable {
 		Main m = new Main();
 		m.changeScene("LoginPage.fxml");
 	}
-	
-	
+		
 	public void nextPage(ActionEvent event) throws IOException {
 		Main m1 = new Main();
-		m1.changeScene("effortLoggerPageThree.fxml");
+		m1.changeScene("effortLoggerVoting.fxml");
 	}
 
-	
-	
 	public void prevPage(ActionEvent event) throws IOException {
 		Main m2 = new Main();
 		m2.changeScene("effortLoggerConsole.fxml");

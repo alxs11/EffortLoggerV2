@@ -1,19 +1,16 @@
+// by kaleb
 package application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
 import java.util.ArrayList;
-
 import java.io.IOException;
 
-public class ControllerEffortLoggerPageThree {
+public class ControllerPPVoting {
 	
-	public ControllerEffortLoggerPageThree() {
+	public ControllerPPVoting() {
 
 	}
 
@@ -39,21 +36,24 @@ public class ControllerEffortLoggerPageThree {
 	static int mean;
 	static int sd;
 
+	// logs user out reroute to login page
 	public void logoutUser(ActionEvent event) throws IOException {
 		Main m = new Main();
 		m.changeScene("LoginPage.fxml");
 	}
 
+	// reroute to next page
 	public void nextPage(ActionEvent event) throws IOException {
 		Main m1 = new Main();
 		m1.changeScene("effortLoggerScore.fxml");
 	}
-	
+	// reroute to prev Page
 	public void prevPage(ActionEvent event) throws IOException {
 		Main m = new Main();
-		m.changeScene("effortLoggerPageTwo.fxml");
+		m.changeScene("effortLoggerStory.fxml");
 	}
 
+	// read value from sliders, calculate mean based on rounds
 	public void submitPoints(ActionEvent event) throws IOException {
 		memberPoints = new int[]{
 		((int) memberOne.getValue()),
@@ -81,9 +81,7 @@ public class ControllerEffortLoggerPageThree {
 	    memberPoints.add(memberSixPoints);
 	    int sum = 0;
 	    if (rounds > 1) {	
-		    for (double i : memberPoints) {
-		        sum += i;
-		    }		    
+		    for (double i : memberPoints) {sum += i;}		    
 		    length = memberPoints.size();
 		    mean = sum / length;
 		    sd = 0;
@@ -91,34 +89,22 @@ public class ControllerEffortLoggerPageThree {
 		        sd += Math.pow(num - mean, 2);
 		    }
 		    sd =  (int) Math.sqrt(sd / length);
-		    System.out.print(memberPoints);
-		    
 			Main m = new Main();
 			rounds -= 1;
-			System.out.print(sd);
 			m.changeScene("effortLoggerScore.fxml");
 		}
 	    else {
 		    for (int i: memberPoints) {
 		    	if(i > mean - sd && i < mean + sd) {
 		    		pointsFinal.add(i);
-		    	}
-		    }
-	    	for (double i : pointsFinal) {
-		        sum += i;
-		    }
+		    	}}
+	    	for (double i : pointsFinal) {sum += i;}
 		    length = pointsFinal.size();
 		    mean = sum / length;
-
-
-		    
-		    
 			Main m = new Main();
 			rounds -= 1;
-			
 			m.changeScene("effortLoggerScore.fxml");
 		}
-
 	}
 	public static int getRounds() {
 		return rounds;

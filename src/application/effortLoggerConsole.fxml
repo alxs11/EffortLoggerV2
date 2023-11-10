@@ -1,33 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerEffortLoggerConsole">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerEffortLoggerConsole">
    <children>
-      <Button fx:id="logout" layoutX="461.0" layoutY="14.0" mnemonicParsing="false" onAction="#logoutUser" prefHeight="27.0" prefWidth="89.0" text="Sign Out" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="54.0" prefHeight="54.0" prefWidth="358.0" text="Effort Logger v2.0. Console">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="43.0" prefHeight="54.0" prefWidth="358.0" text="Effort Logger v2.0. Console">
          <font>
-            <Font size="24.0" />
+            <Font name="Corbel" size="28.0" />
          </font>
       </Label>
-      <Button fx:id="next" layoutX="360.0" layoutY="14.0" mnemonicParsing="false" onAction="#nextPage" prefHeight="27.0" prefWidth="90.0" text="Next" />
-      <ButtonBar layoutX="38.0" layoutY="8.0" prefHeight="40.0" prefWidth="200.0" />
-      <Button fx:id="newActivity" layoutX="87.0" layoutY="131.0" mnemonicParsing="false" onAction="#newActivity" text="New Activity" />
-      <Button fx:id="stopActivity" layoutX="86.0" layoutY="170.0" mnemonicParsing="false" onAction="#stopActivity" text="Stop Activity" />
-      <Label layoutX="221.0" layoutY="131.0" text="Project Type:" />
-      <Label layoutX="221.0" layoutY="166.0" text="Life Cycle Step:" />
-      <Label layoutX="219.0" layoutY="204.0" text="Effort Category:" />
-      <Label layoutX="224.0" layoutY="240.0" text="Deliverable:" />
-      <ChoiceBox fx:id="projectType" layoutX="330.0" layoutY="127.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="lifeCycleStep" layoutX="330.0" layoutY="162.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="effortCategory" layoutX="330.0" layoutY="200.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="deliverable" layoutX="330.0" layoutY="236.0" prefWidth="150.0" />
-      <Label fx:id="elapsedTime" layoutX="91.0" layoutY="301.0" text="Elapsed Time:" />
-      <Button fx:id="employeeList" layoutX="439.0" layoutY="359.0" mnemonicParsing="false" onAction="#employeeListPage" prefHeight="26.0" prefWidth="133.0" text="List of Employees" />
+      <Button fx:id="newActivity" layoutX="207.0" layoutY="182.0" mnemonicParsing="false" onAction="#newActivity" text="New Activity">
+         <font>
+            <Font name="Corbel" size="12.0" />
+         </font></Button>
+      <Button fx:id="stopActivity" layoutX="206.0" layoutY="221.0" mnemonicParsing="false" onAction="#stopActivity" text="Stop Activity">
+         <font>
+            <Font name="Corbel" size="12.0" />
+         </font></Button>
+      <Label layoutX="341.0" layoutY="182.0" text="Project Type:">
+         <font>
+            <Font name="Corbel" size="12.0" />
+         </font></Label>
+      <Label layoutX="341.0" layoutY="217.0" text="Life Cycle Step:">
+         <font>
+            <Font name="Corbel" size="12.0" />
+         </font></Label>
+      <Label layoutX="339.0" layoutY="255.0" text="Effort Category:" />
+      <Label layoutX="344.0" layoutY="291.0" text="Deliverable:" />
+      <ChoiceBox fx:id="projectType" layoutX="450.0" layoutY="178.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="lifeCycleStep" layoutX="450.0" layoutY="213.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="effortCategory" layoutX="450.0" layoutY="251.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="deliverable" layoutX="450.0" layoutY="287.0" prefWidth="150.0" />
+      <Label fx:id="elapsedTime" layoutX="206.0" layoutY="414.0" text="Elapsed Time:" />
+      <Button fx:id="employeeList" layoutX="559.0" layoutY="410.0" mnemonicParsing="false" onAction="#employeeListPage" prefHeight="26.0" prefWidth="133.0" text="List of Employees" />
+      <Pane layoutY="-1.0" prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;">
+         <children>
+            <Text layoutX="27.0" layoutY="479.0" onMouseClicked="#logoutUser" onMousePressed="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out" wrappingWidth="80.0">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="next" layoutX="27.0" layoutY="427.0" onMouseClicked="#nextPage" onMousePressed="#nextPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Planning Poker" wrappingWidth="80.0">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="18.0" layoutY="99.0" onMouseClicked="#nextPage" onMousePressed="#changeToEditor" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Editor" wrappingWidth="97.60000610351562">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="18.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Defect Log Console" wrappingWidth="97.60000610351562">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="18.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="18.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort and Defect Log" wrappingWidth="97.60000610351562">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="17.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Console" wrappingWidth="97.60000610351562">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
