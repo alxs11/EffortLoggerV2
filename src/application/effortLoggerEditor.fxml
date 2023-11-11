@@ -124,7 +124,7 @@
          </font>
       </Button>
       <ChoiceBox fx:id="projectType" layoutX="197.0" layoutY="138.0" prefWidth="150.0" />
-      <ChoiceBox layoutX="406.0" layoutY="138.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="selectEntry" layoutX="406.0" layoutY="138.0" prefWidth="150.0" />
       <ChoiceBox fx:id="lifeCycleStep" layoutX="298.0" layoutY="257.0" prefHeight="26.0" prefWidth="118.0" />
       <TextField layoutX="647.0" layoutY="208.0" prefHeight="26.0" prefWidth="79.0" />
       <ChoiceBox fx:id="effortCategory" layoutX="298.0" layoutY="310.0" prefHeight="26.0" prefWidth="117.0" />
