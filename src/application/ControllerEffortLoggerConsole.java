@@ -186,4 +186,10 @@ public class ControllerEffortLoggerConsole {
 		m1.changeScene("defectConsole.fxml");
 	}
 	
+	@FXML private Text userStoryTab;
+	public void enterUserStories(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("EffortLoggerUserStories.fxml");
+	}
+	
 }
