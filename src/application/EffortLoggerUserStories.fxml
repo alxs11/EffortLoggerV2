@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerEffortLoggerUserStories">
+   <children>
+      <Label layoutX="159.0" layoutY="77.0" prefHeight="35.0" prefWidth="137.0" text="User Stories" textFill="#101010">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="textArea" layoutX="159.0" layoutY="136.0" prefHeight="202.0" prefWidth="481.0" promptText="Input user story here" wrapText="true" />
+      <Button fx:id="userStoryButton" layoutX="161.0" layoutY="362.0" mnemonicParsing="false" onAction="#viewUserStories" prefHeight="26.0" prefWidth="148.0" text="View User Stories" />
+      <Button fx:id="clearButton" layoutX="454.0" layoutY="362.0" mnemonicParsing="false" onAction="#clearText" prefHeight="26.0" prefWidth="87.0" text="Clear" />
+      <Button fx:id="saveButton" layoutX="553.0" layoutY="362.0" mnemonicParsing="false" onAction="#saveUserStory" prefHeight="26.0" prefWidth="87.0" text="Save" />
+      <Button fx:id="logout" layoutX="653.0" layoutY="13.0" mnemonicParsing="false" onAction="#userLogout" prefHeight="26.0" prefWidth="128.0" text="Sign Out" />
+    <Button fx:id="homeButton" layoutX="506.0" layoutY="13.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="26.0" prefWidth="138.0" text="Effort Logger Console" />
+   </children>
+</AnchorPane>
