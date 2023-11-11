@@ -67,16 +67,16 @@ public class LogsData {
 	}
 	public String [] filterDefectData(int type) {
 		//type: 0 = Business, 1 = Development
-				String[] out = new String[DefectLogs.size()];
-				for(int i = 0; i < DefectLogs.size(); i ++) {
-					out[i] = "";
-					for (int t = 0; t < 7; t++) {
-						if(t == 3)
-							continue;
-						out[i] += DefectLogs.get(i)[t];
-					}
-				}
-				return out;
+		String[] out = new String[DefectLogs.size()];
+		for(int i = 0; i < DefectLogs.size(); i ++) {
+			out[i] = "";
+			for (int t = 0; t < 7; t++) {
+				if(t == 3)
+					continue;
+				out[i] += DefectLogs.get(i)[t];
+			}
+		}
+		return out;
 	}
 	public void loadEffortData() { // Load Effort Logs from the file effortLogs
 		try {
