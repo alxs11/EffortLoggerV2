@@ -71,7 +71,7 @@ public class LogsData {
 					for (int t = 0; t < 7; t++) {
 						if(t == 3)
 							continue;
-						out[i] += EffortLogs.get(i)[t];
+						out[i] += DefectLogs.get(i)[t];
 					}
 				}
 				return out;
