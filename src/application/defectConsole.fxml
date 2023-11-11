@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -17,13 +17,11 @@
       <Label layoutX="400.0" layoutY="146.0" text="Current Defect:" />
       <ChoiceBox fx:id="currentDefect" layoutX="500.0" layoutY="142.0" prefWidth="150.0" />
       <Button layoutX="300.0" layoutY="103.0" mnemonicParsing="false" text="Clear Defect" />
-      <Button layoutX="300.0" layoutY="142.0" mnemonicParsing="false" text="New Defect" />
+      <Button layoutX="300.0" layoutY="142.0" mnemonicParsing="false" onAction="#newDefect" text="New Defect" />
       <Label layoutX="180.0" layoutY="191.0" text="Define\Update Defect:" />
-      <TextArea layoutX="320.0" layoutY="180.0" prefHeight="40.0" prefWidth="150.0" />
       <Label layoutX="490.0" layoutY="191.0" text="Status:" />
       <Button layoutX="540.0" layoutY="187.0" mnemonicParsing="false" text="Close" />
       <Button layoutX="600.0" layoutY="187.0" mnemonicParsing="false" text="Reopen" />
-      <TextArea layoutX="320.0" layoutY="227.0" prefHeight="40.0" prefWidth="333.0" />
       <Label layoutX="200.0" layoutY="238.0" text="Defect Symptoms:" />
       <Label layoutX="200.0" layoutY="38.0" prefHeight="54.0" prefWidth="373.0" text="Effort Logger v2.0. Defect Console">
          <font>
@@ -43,12 +41,12 @@
       <Button layoutX="390.0" layoutY="349.0" mnemonicParsing="false" text="Clear Current Defect" />
       <Button fx:id="EffortConsole" layoutX="580.0" layoutY="349.0" mnemonicParsing="false" onAction="#EffortLoggerConsole" text="EffortLogger Console" />
       <Pane prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;" />
-      <Text layoutX="17.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EffortLogger Console" wrappingWidth="97.60000610351562">
+      <Text layoutX="17.0" layoutY="45.0" onMouseClicked="#changeToConsole" onMousePressed="#changeToConsole" strokeType="OUTSIDE" strokeWidth="0.0" text="EffortLogger Console" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="18.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EffortLogger Editor" wrappingWidth="97.60000610351562">
+      <Text layoutX="18.0" layoutY="99.0" onMouseClicked="#changeToEditor" onMousePressed="#changeToEditor" strokeType="OUTSIDE" strokeWidth="0.0" text="EffortLogger Editor" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>
@@ -58,7 +56,7 @@
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="18.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
+      <Text layoutX="18.0" layoutY="210.0" onMouseClicked="#changeToDefinition" onMousePressed="#changeToDefinition" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>
@@ -78,5 +76,7 @@
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
+      <TextField fx:id="defectText" layoutX="320.0" layoutY="186.0" />
+      <TextField fx:id="defectSymp" layoutX="320.0" layoutY="227.0" prefHeight="35.0" prefWidth="338.0" />
    </children>
 </AnchorPane>

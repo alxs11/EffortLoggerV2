@@ -7,12 +7,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.control.TextField;
 
 import java.util.*;
 import java.time.Instant;
-
-
-
+import java.awt.TextArea;
 import java.io.IOException;
 
 public class ControllerdefectConsole {
@@ -92,21 +92,55 @@ public class ControllerdefectConsole {
 	
 	}
 	
-	@FXML
-	private Button logout;
+	@FXML private Button logout;
 	
 	public void logoutUser(ActionEvent event) throws IOException {
 		Main m6 = new Main();
 		m6.changeScene("LoginPage.fxml");
 	}
 	
-	@FXML 
-	private Button EffortConsole;
+	@FXML private Button EffortConsole;
 
 	public void EffortLoggerConsole(ActionEvent event) throws IOException {
 		Main m7 = new Main();
 		m7.changeScene("effortLoggerConsole.fxml");
 	}
+	
+	public void changeToConsole(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+		m6.changeScene("effortLoggerConsole.fxml");
+	}
+	public void changeToEditor(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+		m6.changeScene("effortLoggerEditor.fxml");
+	}	
+	public void changeToDefinition(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+	}	
+	public void changeToLog(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+	}	
+	public void changeToUserStories(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+	}
+
+	public String[] newDefect (ActionEvent event) throws IOException {
+		//System.out.print("BRUHHH");
+		String project = projectTyped.getValue();
+		String defect =  currentDefect.getValue();
+		String defectName = defectText.getText();
+		String defectDisc = defectSymp.getText();
+		String stepWhenInjected = injectedStep.getValue();
+		String stepWhenRemoved = removedStep.getValue();
+		String defectCategory = defectCat.getValue();
+		
+		String[] defectData = new String[] {project, defect, defectName, defectDisc, stepWhenInjected, stepWhenRemoved,defectCategory};
+		LogsData logs = new LogsData(false, true);
+		logs.addEffortData(defectData);
+		return defectData;	
+	
+	}
+	
 	@FXML
 	private ChoiceBox<String> projectTyped;
 	@FXML
@@ -117,6 +151,10 @@ public class ControllerdefectConsole {
 	private ChoiceBox<String> removedStep;
 	@FXML
 	private ChoiceBox<String> defectCat;
+	@FXML
+    private TextField defectSymp;
+    @FXML
+    private TextField defectText;
 	
 	
 	

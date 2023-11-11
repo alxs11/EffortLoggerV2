@@ -5,16 +5,73 @@ import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Slider;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+
 import java.util.ArrayList;
 import java.io.IOException;
 
 public class ControllerELEditor {
+	@FXML private ChoiceBox<String> projectType;
+	@FXML private ChoiceBox<String> lifeCycleStep;
+	@FXML private ChoiceBox<String> effortCategory;
+	@FXML private ChoiceBox<String> deliverable;
+	@FXML private Button clear;
+	@FXML private DatePicker date;
+	@FXML private TextField startTime;
+	@FXML private TextField stopTime;
 	
-	public ControllerELEditor() {
-
+	
+	public ControllerELEditor() { }
+	@FXML
+	private void initialize() {
+		projectType.getItems().add("Business Project");
+		projectType.getItems().add("Development Project");
+		
+		lifeCycleStep.getItems().add("Problem Understanding");
+		lifeCycleStep.getItems().add("Conceptual Design Plan");
+		lifeCycleStep.getItems().add("Requirements");
+		lifeCycleStep.getItems().add("Conceptual Design");
+		lifeCycleStep.getItems().add("Conceptual Design Review");
+		lifeCycleStep.getItems().add("Detailed Design Plan");
+		lifeCycleStep.getItems().add("Detailed Design/Prototype");
+		lifeCycleStep.getItems().add("Detailed Design Review");
+		lifeCycleStep.getItems().add("Implementation Plan");
+		lifeCycleStep.getItems().add("Test Case Generation");
+		lifeCycleStep.getItems().add("Solution Specification");
+		lifeCycleStep.getItems().add("Solution Review");
+		lifeCycleStep.getItems().add("Solution Implementation");
+		lifeCycleStep.getItems().add("Unit/System Test");
+		lifeCycleStep.getItems().add("Reflection");
+		lifeCycleStep.getItems().add("Repository Update");
+		lifeCycleStep.getItems().add("Planning");
+		lifeCycleStep.getItems().add("Information Gathering");
+		lifeCycleStep.getItems().add("Information Understanding");
+		lifeCycleStep.getItems().add("Verifying");
+		lifeCycleStep.getItems().add("Outlining");
+		lifeCycleStep.getItems().add("Drafting");
+		lifeCycleStep.getItems().add("Finalizing");
+		lifeCycleStep.getItems().add("Team Meeting");
+		lifeCycleStep.getItems().add("Coach Meeting");
+		lifeCycleStep.getItems().add("Stakeholder Meeting");
+		
+		effortCategory.getItems().add("Plans");
+		effortCategory.getItems().add("Deliverables");
+		effortCategory.getItems().add("Interruptions");
+		effortCategory.getItems().add("Defects");
+		effortCategory.getItems().add("Others");
+		
+		deliverable.getItems().add("Conceptual Design");
+		deliverable.getItems().add("Detailed Design");
+		deliverable.getItems().add("Test Cases");
+		deliverable.getItems().add("Solution");						
+		deliverable.getItems().add("Reflection");
+		deliverable.getItems().add("Outline");
+		deliverable.getItems().add("Draft");
+		deliverable.getItems().add("Report");
+		deliverable.getItems().add("Other");
 	}
-
 	// logs user out reroute to login page
 	public void logoutUser(MouseEvent event) throws IOException {
 		Main m = new Main();
