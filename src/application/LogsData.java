@@ -18,6 +18,7 @@ public class LogsData {
 
 	private ObservableList<String[]> EffortLogs;
 	private ObservableList<String[]> DefectLogs;
+	//private ObservableList<String[]>DevelopmentLogs; //probably necessary
 	
 	public LogsData(boolean effortFromFile, boolean defectFromFile) {
 		EffortLogs = FXCollections.observableArrayList();
@@ -62,6 +63,18 @@ public class LogsData {
 			}
 		}
 		return out;
+	}
+	public String [] filterDefectData(int type) {
+		//type: 0 = Business, 1 = Development
+				String[] out = new String[DefectLogs.size()];
+				for(int i = 0; i < DefectLogs.size(); i ++) {
+					for (int t = 0; t < 7; t++) {
+						if(t == 3)
+							continue;
+						out[i] += EffortLogs.get(i)[t];
+					}
+				}
+				return out;
 	}
 	public void loadEffortData() { // Load Effort Logs from the file effortLogs
 		try {
@@ -136,5 +149,35 @@ public class LogsData {
 		}
 		
 	}
+	
+	public Log[] effortAsLogs() {
+		Log[] out = new Log [EffortLogs.size()];
+		for(int i = 0; i < EffortLogs.size(); i++) {
+			out[i].setc1(Integer.toString(i+1));
+			out[i].setc2(EffortLogs.get(i)[0]);
+			out[i].setc2(EffortLogs.get(i)[1]);
+			out[i].setc2(EffortLogs.get(i)[2]);
+			out[i].setc2(EffortLogs.get(i)[3]);
+			out[i].setc2(EffortLogs.get(i)[4]);
+			out[i].setc2(EffortLogs.get(i)[5]);
+			out[i].setc2(EffortLogs.get(i)[6]);
+		}
+		return out;
+	}
+	public Log[] defectAsLogs() {
+		Log[] out = new Log [DefectLogs.size()];
+		for(int i = 0; i < DefectLogs.size(); i++) {
+			out[i].setc1(Integer.toString(i+1));
+			out[i].setc2(DefectLogs.get(i)[0]);
+			out[i].setc2(DefectLogs.get(i)[1]);
+			out[i].setc2(DefectLogs.get(i)[2]);
+			out[i].setc2(DefectLogs.get(i)[3]);
+			out[i].setc2(DefectLogs.get(i)[4]);
+			out[i].setc2(DefectLogs.get(i)[5]);
+			out[i].setc2(DefectLogs.get(i)[6]);
+		}
+		return out;
+	}
+	//public Log[] developmentAsLogs() {} //probably necessary
 		
 }
