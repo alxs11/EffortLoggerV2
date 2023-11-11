@@ -76,7 +76,7 @@
                   <Font name="Corbel Light" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="17.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Stories" wrappingWidth="97.60000610351562">
+            <Text fx:id="userStoryTab" layoutX="17.0" layoutY="301.0" onMouseClicked="#enterUserStories" strokeType="OUTSIDE" strokeWidth="0.0" text="User Stories" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.TextField;
 
 import java.util.*;
@@ -108,13 +109,33 @@ public class ControllerdefectConsole {
 	
 	@FXML 
 	private Button EffortConsole;
+	@FXML private Button EffortConsole;
 
 	public void EffortLoggerConsole(ActionEvent event) throws IOException {
 		Main m7 = new Main();
 		m7.changeScene("effortLoggerConsole.fxml");
 	}
 	
+	public void changeToConsole(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+		m6.changeScene("effortLoggerConsole.fxml");
+	}
+	public void changeToEditor(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+		m6.changeScene("effortLoggerEditor.fxml");
+	}	
+	public void changeToDefinition(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+	}	
+	public void changeToLog(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+	}	
+	public void changeToUserStories(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+	}
+
 	public String[] newDefect (ActionEvent event) throws IOException {
+		//System.out.print("BRUHHH");
 		String project = projectTyped.getValue();
 		String defect =  currentDefect.getValue();
 		String defectName = defectText.getText();
@@ -124,8 +145,13 @@ public class ControllerdefectConsole {
 		String defectCategory = defectCat.getValue();
 		
 		String[] defectData = new String[] {project, defect, defectName, defectDisc, stepWhenInjected, stepWhenRemoved,defectCategory};
+<<<<<<< HEAD
 		defectList.addDefectData(defectData);
 		defectList.saveDefectData("defectLogs");
+=======
+		LogsData logs = new LogsData(false, true);
+		logs.addEffortData(defectData);
+>>>>>>> 6fb5bcc8734aab05aa977e541eb4c757e7d62539
 		return defectData;	
 	
 	}

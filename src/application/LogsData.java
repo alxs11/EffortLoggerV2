@@ -51,6 +51,18 @@ public class LogsData {
 		assert entry.length == 7;
 		DefectLogs.add(entry);
 	}
+	public String [] filterData(int type) {
+		//type: 0 = Business, 1 = Development
+		String[] out = new String[EffortLogs.size()];
+		for(int i = 0; i < EffortLogs.size(); i ++) {
+			for (int t = 0; t < 7; t++) {
+				if(t == 3)
+					continue;
+				out[i] += EffortLogs.get(i)[t];
+			}
+		}
+		return out;
+	}
 	public void loadEffortData() { // Load Effort Logs from the file effortLogs
 		try {
 			int i = -1, t = 0;
