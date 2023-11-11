@@ -32,9 +32,9 @@ public class LogsData {
 	
 	public void displayDefectLogs(){ //for testing
 		try {
-			for(int i = 0; i < EffortLogs.size(); i ++) {
+			for(int i = 0; i < DefectLogs.size(); i ++) {
 				for(int t = 0; t < 7; t ++ ) {
-					System.out.println(EffortLogs.get(i)[t]);
+					System.out.println(DefectLogs.get(i)[t]);
 				}
 				System.out.println();
 			}

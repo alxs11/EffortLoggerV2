@@ -108,7 +108,6 @@ public class ControllerdefectConsole {
 	}
 	
 	public String[] newDefect (ActionEvent event) throws IOException {
-		
 		String project = projectTyped.getValue();
 		String defect =  currentDefect.getValue();
 		String defectName = defectText.getText();
