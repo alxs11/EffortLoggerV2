@@ -1,3 +1,4 @@
+//author Ahmad Samara
 package application;
 
 import javafx.event.ActionEvent;
@@ -16,7 +17,10 @@ import java.awt.TextArea;
 import java.io.IOException;
 
 
+
 public class ControllerdefectConsole {
+
+
 	
 	
 	public ControllerdefectConsole() {}
@@ -146,9 +150,11 @@ public class ControllerdefectConsole {
 		defectList.addDefectData(defectData);
 		defectList.saveDefectData("defectLogs");
 =======
+
 		LogsData logs = new LogsData(false, true);
 		logs.addEffortData(defectData);
 >>>>>>> 6fb5bcc8734aab05aa977e541eb4c757e7d62539
+
 		return defectData;	
 	
 	}
@@ -174,4 +180,4 @@ public class ControllerdefectConsole {
 	
 	
 	
-}
+}}
