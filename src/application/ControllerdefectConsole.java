@@ -108,6 +108,7 @@ public class ControllerdefectConsole {
 	}
 	
 	public String[] newDefect (ActionEvent event) throws IOException {
+		//System.out.print("BRUHHH");
 		String project = projectTyped.getValue();
 		String defect =  currentDefect.getValue();
 		String defectName = defectText.getText();
@@ -117,6 +118,8 @@ public class ControllerdefectConsole {
 		String defectCategory = defectCat.getValue();
 		
 		String[] defectData = new String[] {project, defect, defectName, defectDisc, stepWhenInjected, stepWhenRemoved,defectCategory};
+		LogsData logs = new LogsData(false, true);
+		logs.addEffortData(defectData);
 		return defectData;	
 	
 	}
