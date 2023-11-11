@@ -87,7 +87,7 @@ public class LogsData {
 					i += 1;
 				}
 				String line = input.nextLine();
-				EffortLogs.get(i)[t] = line;
+				EffortLogs.get(i)[t % 7] = line;
 				t += 1;
 			}
 			input.close();
@@ -107,7 +107,7 @@ public class LogsData {
 					DefectLogs.add(new String[7]);
 					i += 1;
 				}
-				DefectLogs.get(i)[t] = input.nextLine();
+				DefectLogs.get(i)[t%7] = input.nextLine();
 				t += 1;
 			}
 			//DefectLogs.remove(i);
