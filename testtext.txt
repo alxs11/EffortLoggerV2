@@ -7,15 +7,15 @@ Reflection
 Defect Type 3
 Development Project
 Defect2
-ben is
-great
-Verifying
+fgh
+fghj
 Outlining
+Information Gathering
 Defect Type 2
 Development Project
 Defect2
-ben is
-great
-Verifying
+fgh
+fghj
 Outlining
+Information Gathering
 Defect Type 2

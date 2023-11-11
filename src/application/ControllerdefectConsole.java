@@ -14,10 +14,17 @@ import java.time.Instant;
 import java.awt.TextArea;
 import java.io.IOException;
 
+
 public class ControllerdefectConsole {
 	
 	
 	public ControllerdefectConsole() {}
+	
+	
+	LogsData defectList = new LogsData(false, true);
+	
+	
+	
 	
 	@FXML
 	private void initialize() {
@@ -117,9 +124,13 @@ public class ControllerdefectConsole {
 		String defectCategory = defectCat.getValue();
 		
 		String[] defectData = new String[] {project, defect, defectName, defectDisc, stepWhenInjected, stepWhenRemoved,defectCategory};
+		defectList.addDefectData(defectData);
+		defectList.saveDefectData("defectLogs");
 		return defectData;	
 	
 	}
+	
+	
 	
 	@FXML
 	private ChoiceBox<String> projectTyped;
