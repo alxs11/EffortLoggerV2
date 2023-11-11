@@ -99,16 +99,13 @@ public class ControllerdefectConsole {
 	
 	}
 	
-	@FXML
-	private Button logout;
+	@FXML private Button logout;
 	
 	public void logoutUser(ActionEvent event) throws IOException {
 		Main m6 = new Main();
 		m6.changeScene("LoginPage.fxml");
 	}
 	
-	@FXML 
-	private Button EffortConsole;
 	@FXML private Button EffortConsole;
 
 	public void EffortLoggerConsole(ActionEvent event) throws IOException {
