@@ -8,12 +8,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-
-import java.util.ArrayList;
+import javafx.beans.value.*;
 import java.io.IOException;
 
 public class ControllerELEditor {
 	@FXML private ChoiceBox<String> projectType;
+	@FXML private ChoiceBox<String> selectEntry;
 	@FXML private ChoiceBox<String> lifeCycleStep;
 	@FXML private ChoiceBox<String> effortCategory;
 	@FXML private ChoiceBox<String> deliverable;
@@ -71,12 +71,30 @@ public class ControllerELEditor {
 		deliverable.getItems().add("Draft");
 		deliverable.getItems().add("Report");
 		deliverable.getItems().add("Other");
+		
+		
+	    projectType.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+	        @Override
+	        public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
+	        	LogsData datas = new LogsData(false, true);
+	        	String[] arr;
+	        	if((projectType.getItems().get((Integer) number2)).equals("Business Project")){
+		        	System.out.println(projectType.getItems().get((Integer) number2));
+		        	arr = datas.filterData(0);
+		        	for(int i=0; i < arr.length; i++){
+		        		selectEntry.getItems().add(arr[i]);
+		        	}
+	        	}
+	        }
+	    });
 	}
 	// logs user out reroute to login page
 	public void logoutUser(MouseEvent event) throws IOException {
 		Main m = new Main();
 		m.changeScene("LoginPage.fxml");
 	}
+
+
 
 	// reroute to next page
 	public void changeToConsole(MouseEvent event) throws IOException {
@@ -89,12 +107,15 @@ public class ControllerELEditor {
 		m.changeScene("effortLoggerStory.fxml");
 	}
 
+	
+
 	public void updateEntry(ActionEvent event) throws IOException {
 		
 	}
 	public void clearEntry(ActionEvent event) throws IOException {
 		
 	}
+
 	public void deleteEntry(ActionEvent event) throws IOException {
 		
 	}
