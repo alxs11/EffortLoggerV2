@@ -21,10 +21,13 @@ public class ControllerLogs {
 	@FXML private TableColumn<Log, String> LifeCycleColumn;
 	@FXML private TableColumn<Log, String> CategoryColumn;
 	@FXML private TableColumn<Log, String> DeliverableColumn;
+	private Log[] effortLogs; 
 	
 	@FXML private ToggleButton tb;
 	
 	public ControllerLogs() {
+		LogsData logs = new LogsData(true, true);
+		effortLogs = logs.effortAsLogs();
 		
 	}
 	public void initialize() {
@@ -35,6 +38,8 @@ public class ControllerLogs {
 		LifeCycleColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("c5"));
 		CategoryColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("c6"));
 		DeliverableColumn.setCellValueFactory(new PropertyValueFactory<Log, String>("c7"));
-		tableView.setOpacity(0);
+		
+		tableView.setItems(effortLogs);
 	}
+
 }
