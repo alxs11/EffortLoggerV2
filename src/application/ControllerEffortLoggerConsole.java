@@ -192,4 +192,10 @@ public class ControllerEffortLoggerConsole {
 		m.changeScene("EffortLoggerUserStories.fxml");
 	}
 	
+	@FXML private Text logsButton;
+	public void effortDefectLogs(MouseEvent event) throws IOException{
+		Main m = new Main();
+		m.changeScene("effortLoggerLogs.fxml");
+	}
+	
 }

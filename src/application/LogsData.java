@@ -149,34 +149,23 @@ public class LogsData {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
-	public Log[] effortAsLogs() {
-		Log[] out = new Log [EffortLogs.size()];
+	public ObservableList<Log> effortAsLogs() {
+		ObservableList<Log> out = FXCollections.observableArrayList();
 		for(int i = 0; i < EffortLogs.size(); i++) {
-			out[i].setc1(Integer.toString(i+1));
-			out[i].setc2(EffortLogs.get(i)[0]);
-			out[i].setc2(EffortLogs.get(i)[1]);
-			out[i].setc2(EffortLogs.get(i)[2]);
-			out[i].setc2(EffortLogs.get(i)[3]);
-			out[i].setc2(EffortLogs.get(i)[4]);
-			out[i].setc2(EffortLogs.get(i)[5]);
-			out[i].setc2(EffortLogs.get(i)[6]);
+			Log l = new Log(Integer.toString(i + 1), EffortLogs.get(i)[0], EffortLogs.get(i)[1], EffortLogs.get(i)[2],
+					 EffortLogs.get(i)[3], EffortLogs.get(i)[4], EffortLogs.get(i)[5], EffortLogs.get(i)[6]);
+			out.add(l);
 		}
 		return out;
 	}
-	public Log[] defectAsLogs() {
-		Log[] out = new Log [DefectLogs.size()];
+	public ObservableList<Log> defectAsLogs() {
+		ObservableList<Log> out = FXCollections.observableArrayList();
 		for(int i = 0; i < DefectLogs.size(); i++) {
-			out[i].setc1(Integer.toString(i+1));
-			out[i].setc2(DefectLogs.get(i)[0]);
-			out[i].setc2(DefectLogs.get(i)[1]);
-			out[i].setc2(DefectLogs.get(i)[2]);
-			out[i].setc2(DefectLogs.get(i)[3]);
-			out[i].setc2(DefectLogs.get(i)[4]);
-			out[i].setc2(DefectLogs.get(i)[5]);
-			out[i].setc2(DefectLogs.get(i)[6]);
+			Log l = new Log(Integer.toString(i + 1), DefectLogs.get(i)[0], DefectLogs.get(i)[1], DefectLogs.get(i)[2],
+					DefectLogs.get(i)[3], DefectLogs.get(i)[4], DefectLogs.get(i)[5], DefectLogs.get(i)[6]);
+			out.add(l);
 		}
 		return out;
 	}

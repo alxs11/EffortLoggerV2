@@ -7,7 +7,7 @@ package application;
  * 
  */
 public class Log {
-	private String c1, c2, c3, c4, c5, c6, c7, c8;
+	public String c1, c2, c3, c4, c5, c6, c7, c8;
 
 	public Log(String col1, String col2, String col3, String col4,
 			String col5, String col6, String col7, String col8) {
@@ -28,4 +28,12 @@ public class Log {
 	public void setc6(String inp) {c6 = inp;}
 	public void setc7(String inp) {c7 = inp;}
 	public void setc8(String inp) {c8 = inp;}
+	public String getC1() {return c1;}
+	public String getC2() {return c2;}
+	public String getC3() {return c3;}
+	public String getC4() {return c4;}
+	public String getC5() {return c5;}
+	public String getC6() {return c6;}
+	public String getC7() {return c7;}
+	public String getC8() {return c8;}
 }

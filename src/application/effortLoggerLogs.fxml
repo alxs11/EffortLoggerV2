@@ -12,16 +12,6 @@
    <children>
       <Pane layoutY="-1.0" prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;">
          <children>
-            <Text layoutX="27.0" layoutY="479.0" onMouseClicked="#logoutUser" onMousePressed="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out" wrappingWidth="80.0">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="next" layoutX="27.0" layoutY="427.0" onMouseClicked="#changeToStory" onMousePressed="#changeToStory" strokeType="OUTSIDE" strokeWidth="0.0" text="Planning Poker" wrappingWidth="80.0">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
             <Text layoutX="18.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Editor" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
@@ -42,23 +32,19 @@
                   <Font name="Corbel Light" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="17.0" layoutY="45.0" onMouseClicked="#changeToConsole" onMousePressed="#changeToConsole" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Console" wrappingWidth="97.60000610351562">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
+  
          </children>
       </Pane>
       <TableView fx:id="tableView" layoutX="135.0" layoutY="29.0" prefHeight="471.0" prefWidth="665.0">
         <columns>
-          <TableColumn fx:id="NumberColumn" prefWidth="33.5999755859375" text="No." />
-            <TableColumn fx:id="DateColumn" prefWidth="61.60003662109375" text="Date" />
-            <TableColumn fx:id="StartColumn" prefWidth="83.19999694824219" text="Start Time" />
-            <TableColumn fx:id="StopColumn" prefWidth="73.5999755859375" text="Stop Time" />
-            <TableColumn fx:id="TimeColumn" prefWidth="41.5999755859375" text="Time" />
-            <TableColumn fx:id="LifeCycleColumn" prefWidth="112.0" text="Life Cycle Step" />
-            <TableColumn fx:id="CategoryColumn" editable="false" prefWidth="106.39996337890625" sortable="false" text="Category" />
-          <TableColumn fx:id="DeliverableColumn" prefWidth="168.79998779296875" text="Deliverable/Interruption/etc." />
+          <TableColumn fx:id="Column1" prefWidth="33.5999755859375" text="No." />
+            <TableColumn fx:id="Column2" prefWidth="61.60003662109375" text="Date" />
+            <TableColumn fx:id="Column3" prefWidth="83.19999694824219" text="Start Time" />
+            <TableColumn fx:id="Column4" prefWidth="73.5999755859375" text="Stop Time" />
+            <TableColumn fx:id="Column5" prefWidth="41.5999755859375" text="Time" />
+            <TableColumn fx:id="Column6" prefWidth="112.0" text="Life Cycle Step" />
+            <TableColumn fx:id="Column7" editable="false" prefWidth="106.39996337890625" sortable="false" text="Category" />
+          <TableColumn fx:id="Column8" prefWidth="168.79998779296875" text="Deliverable/Interruption/etc." />
         </columns>
       </TableView>
       <ToggleButton fx:id="tb" layoutX="600.0" layoutY="2.0" mnemonicParsing="false" text="ToggleButton" />
