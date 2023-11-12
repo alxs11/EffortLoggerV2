@@ -119,9 +119,11 @@ public class ControllerdefectConsole {
 	}	
 	public void changeToLog(MouseEvent event)throws IOException {
 		Main m6 = new Main();
+		m6.changeScene("effortLoggerLogs.fxml");
 	}	
-	public void changeToUserStories(MouseEvent event)throws IOException {
-		Main m6 = new Main();
+	public void changeToUserStories(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("effortLoggerUserStories.fxml");
 	}
 
 	public String[] newDefect (ActionEvent event) throws IOException {

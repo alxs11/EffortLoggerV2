@@ -32,7 +32,7 @@
                   <Font name="Corbel Light" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="18.0" layoutY="45.0" onMouseClicked="#toEffortConsole" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Console" wrappingWidth="97.60000610351562">
+            <Text layoutX="17.0" layoutY="45.0" onMouseClicked="#toEffortConsole" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Console" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
@@ -43,6 +43,11 @@
                </font>
             </Text>
             <Text layoutX="14.0" layoutY="467.0" onMouseClicked="#logOut" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign out" wrappingWidth="97.60000610351562">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="userStoryTab" layoutX="17.0" layoutY="301.0" onMouseClicked="#changeToUserStories" strokeType="OUTSIDE" strokeWidth="0.0" text="User Stories" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
