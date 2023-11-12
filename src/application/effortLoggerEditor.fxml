@@ -113,7 +113,7 @@
             <Font name="Corbel" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="604.0" layoutY="426.0" mnemonicParsing="false" text="Delete">
+      <Button layoutX="604.0" layoutY="426.0" mnemonicParsing="false" onAction="#deleteEntry" text="Delete">
          <font>
             <Font name="Corbel" size="14.0" />
          </font>
