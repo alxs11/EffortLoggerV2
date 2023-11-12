@@ -118,7 +118,6 @@ public class LogsData {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			
 		}
 		
 	}
