@@ -2,7 +2,10 @@
 package application;
 
 import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -11,23 +14,39 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.util.*;
-import java.time.Instant;
-
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.io.IOException;
 
 public class ControllerEffortLoggerConsole {
 	
 	public ControllerEffortLoggerConsole() {}
 	
-	public Timer timer;
-	public int seconds;
-	
-	public int logNumber = 0;
-	public List<EffortLog> logs = new ArrayList<EffortLog>();
+	public static Timer effortTimer;
+	public static int effortSeconds;
+	public static boolean effortTimerRunning;
+	private Timer labelTimer;
+	public static LocalTime effortStartTime;
 	
 	@FXML
 	private void initialize() {
-		stopActivity.setDisable(true); // disables timer stop button until timer is started
+		labelTimer = new Timer();
+		TimerTask labelTask = new TimerTask() {
+			@Override
+			public void run() {
+				updateEffortTimeElapsedLabel();
+			}
+		};
+		labelTimer.scheduleAtFixedRate(labelTask, 0, 1000);
+		
+		if (effortTimerRunning) {
+			newActivity.setDisable(true);
+			stopActivity.setDisable(false);
+		} else {
+			newActivity.setDisable(false);
+			stopActivity.setDisable(true);
+		}
 		
 		// aligns with design goal: the organization will have the option to set dropdown options:
 		projectType.getItems().add("Business Project");
@@ -78,29 +97,26 @@ public class ControllerEffortLoggerConsole {
 		deliverable.getItems().add("Other");
 	}
 	
-	// stopwatch start button:
+	// timer start button:
 	@FXML
 	private Button newActivity;
 	public void newActivity(ActionEvent event) throws IOException {
-		stopActivity.setDisable(false); // enables stopwatch stop button
-		// disable buttons to leave page so no data is lost:
-		newActivity.setDisable(true);
-		next.setDisable(true);
-		logout.setDisable(true);
-		employeeList.setDisable(true);
+		stopActivity.setDisable(false);
+		newActivity.setDisable(true); 
 		
-		// start stopwatch:
-		seconds = 0;
-		updateLabel();
-		timer = new Timer();
-		TimerTask task = new TimerTask() {
+		effortTimerRunning = true;
+		effortSeconds = 0;
+		updateEffortTimeElapsedLabel();
+		effortStartTime = LocalTime.now();
+		
+		effortTimer = new Timer();
+		TimerTask effortTask = new TimerTask() {
 			@Override
 			public void run() {
-				seconds++;
-				updateLabel();
+				effortSeconds++;
 			}
 		};
-		timer.scheduleAtFixedRate(task, 1000, 1000);
+		effortTimer.scheduleAtFixedRate(effortTask, 1000, 1000);
 	}
 	
 	// aligns with design goal: button disabling means unintended inputs can't be accessed
@@ -109,20 +125,31 @@ public class ControllerEffortLoggerConsole {
 	@FXML
 	private Button stopActivity;
 	public void stopActivity(ActionEvent event) throws IOException {
-		stopActivity.setDisable(true); // disables this button
-		// enable buttons to leave page:
+		stopActivity.setDisable(true);
 		newActivity.setDisable(false);
-		next.setDisable(false);
-		logout.setDisable(false);
-		employeeList.setDisable(false);
 		
-		timer.cancel(); // terminates stopwatch, value is saved in public int seconds
+		effortTimer.cancel(); // terminates timer, value has been saved in effortSeconds
+		effortTimerRunning = false;
 		
-		// save this effort log to logs list:
-		EffortLog e = new EffortLog(++logNumber, Instant.now(), seconds, 
-				projectType.getValue(), lifeCycleStep.getValue(), 
-				effortCategory.getValue(), deliverable.getValue());
-		logs.add(e);
+		String date = LocalDate.now().toString();
+		String start = effortStartTime.truncatedTo(ChronoUnit.SECONDS).toString();
+		String stop = LocalTime.now().truncatedTo(ChronoUnit.SECONDS).toString();
+		String time = formatTime(effortSeconds);
+		String step = lifeCycleStep.getValue();
+		String cat = effortCategory.getValue();
+		String del = deliverable.getValue();
+		
+		String[] effortData = new String[] {date, start, stop, time, step, cat, del};
+		newEffort(effortData);
+	}
+	
+	public String[] newEffort (String effortData[]) throws IOException {
+
+		
+		LogsData logs = new LogsData(true, true);
+		logs.addEffortData(effortData);
+		logs.saveEffortData();
+		return effortData;
 	}
 	
 	// declare dropdowns:
@@ -137,63 +164,70 @@ public class ControllerEffortLoggerConsole {
 	
 	@FXML
 	private Label elapsedTime;
-	private void updateLabel() {
+	private void updateEffortTimeElapsedLabel() {
 		Platform.runLater(() -> {
-			elapsedTime.setText("Elapsed Time: " + formatTime(seconds));
+			elapsedTime.setText("Elapsed Time: " + formatTime(effortSeconds));
 		});
 	}
-	// take int seconds and return a string in the format of "00:00:00":
+	// take int seconds and return a string in the format of "00h00m00s":
 	public static String formatTime(int seconds) {
 	    int hours = seconds / 3600;
 	    int minutes = (seconds % 3600) / 60;
 	    int remainingSeconds = seconds % 60;
 
-	    String formattedTime = String.format("%02d:%02d:%02d", hours, minutes, remainingSeconds);
+	    String formattedTime = String.format("%02dh%02dm%02ds", hours, minutes, remainingSeconds);
 
 	    return formattedTime;
 	}
 
 	@FXML private Button logout;
 	public void logoutUser(MouseEvent event) throws IOException {
+		labelTimer.cancel();
 		Main m = new Main();
 		m.changeScene("LoginPage.fxml");
 	}
 	
 	@FXML private Text next;
 	public void nextPage(MouseEvent mouse) throws IOException {
-		Main m1 = new Main();
-		m1.changeScene("effortLoggerStory.fxml");
+		labelTimer.cancel();
+		Main m = new Main();
+		m.changeScene("effortLoggerStory.fxml");
 	}
+	
 	@FXML
 	public void changeToEditor(MouseEvent mouse) throws IOException {
-		Main m1 = new Main();
-		m1.changeScene("effortLoggerEditor.fxml");
+		labelTimer.cancel();
+		Main m = new Main();
+		m.changeScene("effortLoggerEditor.fxml");
 		System.out.print("editor");
 	}
+	
 	// open employee list database for testing:
 	@FXML
 	private Button employeeList;
-	
-	@FXML
 	public void employeeListPage(ActionEvent event) throws IOException {
-		Main m2 = new Main();
-		m2.changeScene("EmployeeListPage.fxml");
+		labelTimer.cancel();
+		Main m = new Main();
+		m.changeScene("EmployeeListPage.fxml");
 	}
 	
 	@FXML private Button defectbutton;
 	public void defectConsole(MouseEvent event) throws IOException{
-		Main m1 = new Main();
-		m1.changeScene("defectConsole.fxml");
+		labelTimer.cancel();
+		Main m = new Main();
+		m.changeScene("defectConsole.fxml");
 	}
 	
 	@FXML private Text userStoryTab;
 	public void enterUserStories(MouseEvent event) throws IOException {
+		labelTimer.cancel();
 		Main m = new Main();
 		m.changeScene("EffortLoggerUserStories.fxml");
 	}
-	
+
 	@FXML private Text logsButton;
 	public void effortDefectLogs(MouseEvent event) throws IOException{
+		labelTimer.cancel();
 		Main m = new Main();
 		m.changeScene("effortLoggerLogs.fxml");
 	}
