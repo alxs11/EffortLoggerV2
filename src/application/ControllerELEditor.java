@@ -94,16 +94,17 @@ public class ControllerELEditor {
 	    selectEntry.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 	        @Override
 	        public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
-	        	String itemSelectstr = (selectEntry.getItems().get((Integer) number2).split("  ")[0]);
+	        	String [] vals = selectEntry.getItems().get((Integer) number2).split("  ");
+	        	String itemSelectstr = vals[0];
 	        	itemSelected = Integer.parseInt(itemSelectstr.substring(0, itemSelectstr.length()-1));
 	        	
-	        	lifeCycleStep.setValue(""+selectEntry.getItems().get((Integer) number2).split("  ")[4]);
-	        	LocalDate date1 = LocalDate.parse(selectEntry.getItems().get((Integer) number2).split("  ")[1]);
+	        	lifeCycleStep.setValue(""+vals[4]);
+	        	LocalDate date1 = LocalDate.parse(vals[1]);
 	        	date.setValue(date1);
-	        	startTime.setText(selectEntry.getItems().get((Integer) number2).split("  ")[2]);
-	        	stopTime.setText(selectEntry.getItems().get((Integer) number2).split("  ")[3]);
-	        	effortCategory.setValue(selectEntry.getItems().get((Integer) number2).split("  ")[5]);
-	        	deliverable.setValue(selectEntry.getItems().get((Integer) number2).split("  ")[6]);
+	        	startTime.setText(vals[2]);
+	        	stopTime.setText(vals[3]);
+	        	effortCategory.setValue(vals[5]);
+	        	deliverable.setValue(vals[6]);
 	        }
 	    });
 	}
