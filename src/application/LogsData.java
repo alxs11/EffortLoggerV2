@@ -135,12 +135,42 @@ public class LogsData {
 			e.printStackTrace();
 		}
 	}
+	public void saveEffortData() throws IOException{ //Save Effort logs to file filename
+		try {
+			PrintWriter out = new PrintWriter("effortLogs");
+			for (int i = 0; i < EffortLogs.size(); i++) {
+				for(int t = 0; t < 7; t++) {
+					out.printf(EffortLogs.get(i)[t] + "\n");
+				}
+			}
+			out.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void saveDefectData(String filename) throws IOException{ // Save Defect logs to file filename
 		try {
 			PrintWriter out = new PrintWriter(filename);
 			for (int i = 0; i < DefectLogs.size(); i++) {
 				for(int t = 0; t < 7; t++) {
 					out.printf(DefectLogs.get(i)[t] + "\n");
+				}
+			}
+			out.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void saveDefectData() throws IOException{ // Save Defect logs to file filename
+		try {
+			PrintWriter out = new PrintWriter("defectLogs");
+			
+			for (int i = 0; i < DefectLogs.size(); i++) {
+				for(int t = 0; t < 7; t++) {
+					out.printf(DefectLogs.get(i)[t] + "\n");
+					System.out.println("avajisn");
 				}
 			}
 			out.close();
