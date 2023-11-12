@@ -157,7 +157,11 @@ public class ControllerELEditor {
 		m1.changeScene("effortLoggerEditor.fxml");
 	}
 	public void deleteEntry(ActionEvent event) throws IOException {
-		
+		String [] d = {"" + itemSelected};
+		LogsData logs = new LogsData(true, false);
+		logs.modify(0, d, 1);
+	    logs.saveEffortData();
+
 	}
 	public void splitEntry(ActionEvent event) throws IOException {
 		

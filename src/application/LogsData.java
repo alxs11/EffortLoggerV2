@@ -204,7 +204,7 @@ public class LogsData {
 			
 		}
 		else if (action == 1) { // Delete
-			EffortLogs.remove(Integer.parseInt(replacement[0]));
+			EffortLogs.remove(Integer.parseInt(replacement[0]) - 1);
 		}
 	};
 	//public Log[] developmentAsLogs() {} //probably necessary
