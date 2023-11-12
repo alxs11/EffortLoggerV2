@@ -50,18 +50,6 @@
   
          </children>
       </Pane>
-      <TableView fx:id="effortView" layoutX="135.0" layoutY="29.0" prefHeight="471.0" prefWidth="666.0">
-        <columns>
-          <TableColumn fx:id="Column1" prefWidth="50.0" text="No." />
-            <TableColumn fx:id="Column2" prefWidth="100.0" text="Date" />
-            <TableColumn fx:id="Column3" prefWidth="100.0" text="Start Time" />
-            <TableColumn fx:id="Column4" prefWidth="100.0" text="Stop Time" />
-            <TableColumn fx:id="Column5" prefWidth="75.0" text="Time" />
-            <TableColumn fx:id="Column6" prefWidth="112.0" text="Life Cycle Step" />
-            <TableColumn fx:id="Column7" editable="false" prefWidth="106.39996337890625" sortable="false" text="Category" />
-          <TableColumn fx:id="Column8" prefWidth="200.0" text="Deliverable/Interruption/etc." />
-        </columns>
-      </TableView>
       <TableView fx:id="defectView" layoutX="136.0" layoutY="29.0" prefHeight="471.0" prefWidth="666.0">
          <columns>
             <TableColumn fx:id="C1" prefWidth="50.0" text="No." />
@@ -74,6 +62,18 @@
             <TableColumn fx:id="C8" prefWidth="117.5999755859375" text="Fix" />
          </columns>
       </TableView>
-      <ToggleButton fx:id="tb" layoutX="600.0" layoutY="2.0" mnemonicParsing="false" onAction="#disableDefectLog" text="See Effort Logs" />
+      <TableView fx:id="effortView" layoutX="135.0" layoutY="29.0" prefHeight="471.0" prefWidth="666.0">
+        <columns>
+          <TableColumn fx:id="Column1" prefWidth="50.0" text="No." />
+            <TableColumn fx:id="Column2" prefWidth="100.0" text="Date" />
+            <TableColumn fx:id="Column3" prefWidth="100.0" text="Start Time" />
+            <TableColumn fx:id="Column4" prefWidth="100.0" text="Stop Time" />
+            <TableColumn fx:id="Column5" prefWidth="75.0" text="Time" />
+            <TableColumn fx:id="Column6" prefWidth="112.0" text="Life Cycle Step" />
+            <TableColumn fx:id="Column7" editable="false" prefWidth="106.39996337890625" sortable="false" text="Category" />
+          <TableColumn fx:id="Column8" prefWidth="200.0" text="Deliverable/Interruption/etc." />
+        </columns>
+      </TableView>
+      <ToggleButton fx:id="tb" layoutX="600.0" layoutY="2.0" mnemonicParsing="false" onAction="#disableEffortLog" text="See Defect Logs" />
    </children>
 </AnchorPane>

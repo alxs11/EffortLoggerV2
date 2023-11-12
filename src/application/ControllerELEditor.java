@@ -128,9 +128,11 @@ public class ControllerELEditor {
 
 	public void updateEntry(ActionEvent event) throws IOException {
 		System.out.print(itemSelected);
-		updateEntry1();
+		LogsData logs = new LogsData(true, false);
+	    logs.modify(0, updateEntry1(), 0);
+	    logs.saveEffortData();
 	}
-	public String [] updateEntry1() {
+	public String [] updateEntry1() throws IOException {
 		//ArrayList<String> strArr = new ArrayList<String>();
 		String [] strArr = new String [7];
 	    strArr[0] = String.valueOf(itemSelected);
@@ -140,7 +142,6 @@ public class ControllerELEditor {
 	    strArr[4] = lifeCycleStep.getValue();
 	    strArr[5] = effortCategory.getValue();
 	    strArr[6] = deliverable.getValue();
-	    System.out.print(strArr);
 		return strArr;
 	}
 	public void clearEntry(ActionEvent event) throws IOException {

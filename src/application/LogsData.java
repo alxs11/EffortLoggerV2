@@ -199,7 +199,25 @@ public class LogsData {
 		}
 		return out;
 	}
-	public void modify(int Ptype, int index, String[] replacement, int action) {};
+	public void modify(int Ptype, String[] replacement, int action) throws IOException{
+		if(action == 0) { //Update
+			String [] r = new String[7];
+			System.arraycopy(replacement, 1, r, 0, 3);
+			System.arraycopy(replacement, 4, r, 4, 3);
+			r[3] = deltaTime(replacement[2], replacement[3]);
+			EffortLogs.set(Integer.parseInt(replacement[0])-1, r);
+			
+		}
+		else if (action == 1) { // Delete
+			EffortLogs.remove(Integer.parseInt(replacement[0]));
+		}
+	};
 	//public Log[] developmentAsLogs() {} //probably necessary
-		
+	public String deltaTime(String t1, String t2) {
+		//format hh:mm:ss
+		int t2s = Integer.parseInt(t2.substring(6)) + Integer.parseInt(t2.substring(3,5)) * 60 + Integer.parseInt(t2.substring(0,2)) * 3600;
+		int t1s = Integer.parseInt(t1.substring(6)) + Integer.parseInt(t1.substring(3,5)) * 60 + Integer.parseInt(t1.substring(0,2)) * 3600;		
+		int seconds = t2s - t1s;
+		return String.format("%02dh%02dm%02ds", seconds/3600, (seconds % 3600) / 60, seconds % 60);
+	}
 }
