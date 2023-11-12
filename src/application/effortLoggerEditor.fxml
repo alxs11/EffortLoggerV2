@@ -86,8 +86,8 @@
             <Font name="Corbel" size="14.0" />
          </font>
       </Text>
-      <DatePicker layoutX="239.0" layoutY="208.0" prefHeight="26.0" prefWidth="134.0" />
-      <TextField layoutX="467.0" layoutY="207.0" prefHeight="26.0" prefWidth="79.0" />
+      <DatePicker fx:id="date" layoutX="239.0" layoutY="208.0" prefHeight="26.0" prefWidth="134.0" />
+      <TextField fx:id="startTime" layoutX="467.0" layoutY="207.0" prefHeight="26.0" prefWidth="79.0" />
       <Text layoutX="190.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deliverable:">
          <font>
             <Font name="Corbel" size="16.0" />
@@ -103,12 +103,12 @@
             <Font name="Corbel" size="16.0" />
          </font>
       </Text>
-      <Button layoutX="428.0" layoutY="426.0" mnemonicParsing="false" text="Update">
+      <Button layoutX="428.0" layoutY="426.0" mnemonicParsing="false" onAction="#updateEntry" text="Update">
          <font>
             <Font name="Corbel" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="662.0" layoutY="137.0" mnemonicParsing="false" text="Clear">
+      <Button fx:id="clear" layoutX="662.0" layoutY="137.0" mnemonicParsing="false" onAction="#clearEntry" text="Clear">
          <font>
             <Font name="Corbel" size="14.0" />
          </font>
@@ -126,7 +126,7 @@
       <ChoiceBox fx:id="projectType" layoutX="197.0" layoutY="138.0" prefWidth="150.0" />
       <ChoiceBox fx:id="selectEntry" layoutX="406.0" layoutY="138.0" prefWidth="150.0" />
       <ChoiceBox fx:id="lifeCycleStep" layoutX="298.0" layoutY="257.0" prefHeight="26.0" prefWidth="118.0" />
-      <TextField layoutX="647.0" layoutY="208.0" prefHeight="26.0" prefWidth="79.0" />
+      <TextField fx:id="stopTime" layoutX="647.0" layoutY="208.0" prefHeight="26.0" prefWidth="79.0" />
       <ChoiceBox fx:id="effortCategory" layoutX="298.0" layoutY="310.0" prefHeight="26.0" prefWidth="117.0" />
       <ChoiceBox fx:id="deliverable" layoutX="298.0" layoutY="361.0" prefHeight="26.0" prefWidth="117.0" />
    </children>

@@ -10,6 +10,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.beans.value.*;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class ControllerELEditor {
 	@FXML private ChoiceBox<String> projectType;
@@ -19,10 +23,9 @@ public class ControllerELEditor {
 	@FXML private ChoiceBox<String> deliverable;
 	@FXML private Button clear;
 	@FXML private DatePicker date;
-	@FXML private TextField startTime;
+	@FXML public TextField startTime;
 	@FXML private TextField stopTime;
-	
-	
+	public int itemSelected;
 	public ControllerELEditor() { }
 	@FXML
 	private void initialize() {
@@ -72,19 +75,35 @@ public class ControllerELEditor {
 		deliverable.getItems().add("Report");
 		deliverable.getItems().add("Other");
 		
-		
 	    projectType.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 	        @Override
 	        public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
-	        	LogsData datas = new LogsData(false, true);
-	        	String[] arr;
+	        	LogsData datas = new LogsData(true, false);
+
 	        	if((projectType.getItems().get((Integer) number2)).equals("Business Project")){
 		        	System.out.println(projectType.getItems().get((Integer) number2));
-		        	arr = datas.filterData(0);
+		        	String[] arr = datas.filterData(0);
 		        	for(int i=0; i < arr.length; i++){
 		        		selectEntry.getItems().add(arr[i]);
 		        	}
+
 	        	}
+	        }
+	    });
+	    
+	    selectEntry.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+	        @Override
+	        public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
+	        	String itemSelectstr = (selectEntry.getItems().get((Integer) number2).split("  ")[0]);
+	        	itemSelected = Integer.parseInt(itemSelectstr.substring(0, itemSelectstr.length()-1));
+	        	
+	        	lifeCycleStep.setValue(""+selectEntry.getItems().get((Integer) number2).split("  ")[4]);
+	        	LocalDate date1 = LocalDate.parse(selectEntry.getItems().get((Integer) number2).split("  ")[1]);
+	        	date.setValue(date1);
+	        	startTime.setText(selectEntry.getItems().get((Integer) number2).split("  ")[2]);
+	        	stopTime.setText(selectEntry.getItems().get((Integer) number2).split("  ")[3]);
+	        	effortCategory.setValue(selectEntry.getItems().get((Integer) number2).split("  ")[5]);
+	        	deliverable.setValue(selectEntry.getItems().get((Integer) number2).split("  ")[6]);
 	        }
 	    });
 	}
@@ -93,8 +112,6 @@ public class ControllerELEditor {
 		Main m = new Main();
 		m.changeScene("LoginPage.fxml");
 	}
-
-
 
 	// reroute to next page
 	public void changeToConsole(MouseEvent event) throws IOException {
@@ -107,13 +124,31 @@ public class ControllerELEditor {
 		m.changeScene("effortLoggerStory.fxml");
 	}
 
-	
-
 	public void updateEntry(ActionEvent event) throws IOException {
-		
+		System.out.print(itemSelected);
+		updateEntry1();
+	}
+	public ArrayList<String> updateEntry1() {
+		ArrayList<String> strArr = new ArrayList<String>();
+	    strArr.add(String.valueOf(itemSelected));
+	    strArr.add(date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+	    strArr.add(startTime.getText());
+	    strArr.add(stopTime.getText());
+	    strArr.add(lifeCycleStep.getValue());
+	    strArr.add(effortCategory.getValue());
+	    strArr.add(deliverable.getValue());
+	    System.out.print(strArr);
+		return strArr;
 	}
 	public void clearEntry(ActionEvent event) throws IOException {
-		
+		projectType.setValue(null);
+		selectEntry.setValue(null);
+		lifeCycleStep.setValue(null);
+		effortCategory.setValue(null);
+		deliverable.setValue(null);
+//		date.setValue(null);
+		startTime.setText(null);
+		stopTime.setText(null);
 	}
 
 	public void deleteEntry(ActionEvent event) throws IOException {
