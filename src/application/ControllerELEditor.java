@@ -31,6 +31,7 @@ public class ControllerELEditor {
 	private void initialize() {
 		projectType.getItems().add("Business Project");
 		projectType.getItems().add("Development Project");
+
 		
 		lifeCycleStep.getItems().add("Problem Understanding");
 		lifeCycleStep.getItems().add("Conceptual Design Plan");
@@ -141,14 +142,8 @@ public class ControllerELEditor {
 		return strArr;
 	}
 	public void clearEntry(ActionEvent event) throws IOException {
-		projectType.setValue(null);
-		selectEntry.setValue(null);
-		lifeCycleStep.setValue(null);
-		effortCategory.setValue(null);
-		deliverable.setValue(null);
-//		date.setValue(null);
-		startTime.setText(null);
-		stopTime.setText(null);
+		Main m1 = new Main();
+		m1.changeScene("effortLoggerEditor.fxml");
 	}
 
 	public void deleteEntry(ActionEvent event) throws IOException {
@@ -157,30 +152,11 @@ public class ControllerELEditor {
 	public void splitEntry(ActionEvent event) throws IOException {
 		
 	}
-	public void updateDateEntry(ActionEvent event) throws IOException {
-		
-	}
-	public void updateStartTime(ActionEvent event) throws IOException {
-		
-	}
-	public void updateStopTime(ActionEvent event) throws IOException {
-		
-	}
 	public void selectProject(ActionEvent event) throws IOException {
 		
 	}
 	public void selectEntry(ActionEvent event) throws IOException {
 		
 	}
-	public void updateLifeCycleStep(ActionEvent event) throws IOException {
-		
-	}
-	public void updateEffortCategory(ActionEvent event) throws IOException {
-		
-	}
-	public void updateDeliverable(ActionEvent event) throws IOException {
-		
-	}
-
 
 }
