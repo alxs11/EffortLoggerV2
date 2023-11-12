@@ -58,12 +58,10 @@ public class LogsData {
 
 		for(int i = 0; i < EffortLogs.size(); i ++) {
 			out[i] = "" + (i + 1) + ".";
-
 			for (int t = 0; t < 7; t++) {
 				if(t == 3)
 					continue;
 				out[i] += "  " + EffortLogs.get(i)[t];
-
 			}
 		}
 		return out;
@@ -72,11 +70,11 @@ public class LogsData {
 		//type: 0 = Business, 1 = Development
 		String[] out = new String[DefectLogs.size()];
 		for(int i = 0; i < DefectLogs.size(); i ++) {
-			out[i] = "" + (i + 1) + ". ";
+			out[i] = "" + (i + 1) + ".";
 			for (int t = 0; t < 7; t++) {
 				if(t == 3)
 					continue;
-				out[i] += " " + DefectLogs.get(i)[t];
+				out[i] += "  " + DefectLogs.get(i)[t];
 			}
 		}
 		return out;
@@ -201,6 +199,7 @@ public class LogsData {
 		}
 		return out;
 	}
+	public void modify(int Ptype, int index, String[] replacement, int action) {};
 	//public Log[] developmentAsLogs() {} //probably necessary
 		
 }
