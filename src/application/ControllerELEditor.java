@@ -128,15 +128,16 @@ public class ControllerELEditor {
 		System.out.print(itemSelected);
 		updateEntry1();
 	}
-	public ArrayList<String> updateEntry1() {
-		ArrayList<String> strArr = new ArrayList<String>();
-	    strArr.add(String.valueOf(itemSelected));
-	    strArr.add(date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-	    strArr.add(startTime.getText());
-	    strArr.add(stopTime.getText());
-	    strArr.add(lifeCycleStep.getValue());
-	    strArr.add(effortCategory.getValue());
-	    strArr.add(deliverable.getValue());
+	public String [] updateEntry1() {
+		//ArrayList<String> strArr = new ArrayList<String>();
+		String [] strArr = new String [7];
+	    strArr[0] = String.valueOf(itemSelected);
+	    strArr[1] = date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	    strArr[2] = startTime.getText();
+	    strArr[3] = stopTime.getText();
+	    strArr[4] = lifeCycleStep.getValue();
+	    strArr[5] = effortCategory.getValue();
+	    strArr[6] = deliverable.getValue();
 	    System.out.print(strArr);
 		return strArr;
 	}
