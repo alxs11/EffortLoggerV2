@@ -11,9 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.beans.value.*;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class ControllerELEditor {
 	@FXML private ChoiceBox<String> projectType;
@@ -114,7 +112,6 @@ public class ControllerELEditor {
 		Main m = new Main();
 		m.changeScene("LoginPage.fxml");
 	}
-
 	// reroute to next page
 	public void changeToConsole(MouseEvent event) throws IOException {
 		Main m1 = new Main();
@@ -125,12 +122,25 @@ public class ControllerELEditor {
 		Main m = new Main();
 		m.changeScene("effortLoggerStory.fxml");
 	}
-
+	public void changeToDefect(MouseEvent event) throws IOException {
+		Main m1 = new Main();
+		m1.changeScene("defectConsole.fxml");
+	}
+	public void changeToLog(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("effortLoggerLogs.fxml");
+	}
+	public void changeToUserStories(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("effortLoggerUserStories.fxml");
+	}
 	public void updateEntry(ActionEvent event) throws IOException {
 		System.out.print(itemSelected);
-		updateEntry1();
+		LogsData logs = new LogsData(true, false);
+	    logs.modify(0, updateEntry1(), 0);
+	    logs.saveEffortData();
 	}
-	public String [] updateEntry1() {
+	public String [] updateEntry1() throws IOException {
 		//ArrayList<String> strArr = new ArrayList<String>();
 		String [] strArr = new String [7];
 	    strArr[0] = String.valueOf(itemSelected);
@@ -140,24 +150,20 @@ public class ControllerELEditor {
 	    strArr[4] = lifeCycleStep.getValue();
 	    strArr[5] = effortCategory.getValue();
 	    strArr[6] = deliverable.getValue();
-	    System.out.print(strArr);
 		return strArr;
 	}
 	public void clearEntry(ActionEvent event) throws IOException {
 		Main m1 = new Main();
 		m1.changeScene("effortLoggerEditor.fxml");
 	}
-
 	public void deleteEntry(ActionEvent event) throws IOException {
-		
+		String [] d = {"" + itemSelected};
+		LogsData logs = new LogsData(true, false);
+		logs.modify(0, d, 1);
+	    logs.saveEffortData();
+
 	}
 	public void splitEntry(ActionEvent event) throws IOException {
-		
-	}
-	public void selectProject(ActionEvent event) throws IOException {
-		
-	}
-	public void selectEntry(ActionEvent event) throws IOException {
 		
 	}
 

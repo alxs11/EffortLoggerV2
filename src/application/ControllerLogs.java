@@ -75,10 +75,10 @@ public class ControllerLogs {
 		defectView.setItems(defectLogs);
 	}
 	
-	public void disableDefectLog(ActionEvent event) throws IOException{
-		defectView.setDisable(!defectView.isDisable());
-		defectView.setOpacity(defectView.getOpacity() == 1.0 ? 0: 1);
-		tb.setText(defectView.isDisable() ? "See Defect Logs" : "See Effort Logs");
+	public void disableEffortLog(ActionEvent event) throws IOException{
+		effortView.setDisable(!effortView.isDisable());
+		effortView.setOpacity(effortView.getOpacity() == 1.0 ? 0: 1);
+		tb.setText(effortView.isDisable() ? "See Effort Logs" : "See Defect Logs");
 	}
 
 	@FXML private Button defectbutton;
@@ -101,6 +101,10 @@ public class ControllerLogs {
 	public void toPlanningPoker(MouseEvent event) throws IOException{
 		Main m1 = new Main();
 		m1.changeScene("FffortLoggerUserStories.fxml");
+	}
+	public void changeToUserStories(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("effortLoggerUserStories.fxml");
 	}
 
 }

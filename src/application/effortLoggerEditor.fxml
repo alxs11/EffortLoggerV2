@@ -34,7 +34,7 @@
                   <Font name="Corbel Light" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="18.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Defect Log Console" wrappingWidth="97.60000610351562">
+            <Text layoutX="18.0" layoutY="155.0" onMouseClicked="#changeToDefect" strokeType="OUTSIDE" strokeWidth="0.0" text="Defect Log Console" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
@@ -44,12 +44,17 @@
                   <Font name="Corbel Light" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="18.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort and Defect Log" wrappingWidth="97.60000610351562">
+            <Text layoutX="18.0" layoutY="247.0" onMouseClicked="#changeToLog" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort and Defect Log" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
             </Text>
             <Text layoutX="17.0" layoutY="45.0" onMouseClicked="#changeToConsole" onMousePressed="#changeToConsole" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Console" wrappingWidth="97.60000610351562">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="userStoryTab" layoutX="17.0" layoutY="301.0" onMouseClicked="#changeToUserStories" strokeType="OUTSIDE" strokeWidth="0.0" text="User Stories" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
@@ -113,7 +118,7 @@
             <Font name="Corbel" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="604.0" layoutY="426.0" mnemonicParsing="false" text="Delete">
+      <Button layoutX="604.0" layoutY="426.0" mnemonicParsing="false" onAction="#deleteEntry" text="Delete">
          <font>
             <Font name="Corbel" size="14.0" />
          </font>

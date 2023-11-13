@@ -22,22 +22,22 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <TextArea layoutX="99.0" layoutY="144.0" prefHeight="83.0" prefWidth="513.0" text="Various User Stories Go here" />
-      <Text fx:id="TextTimer" layoutX="605.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="115.6666259765625">
+      <TextArea layoutX="100.0" layoutY="127.0" prefHeight="83.0" prefWidth="426.0" text="Various User Stories Go here" />
+      <Text fx:id="TextTimer" layoutX="607.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="115.6666259765625">
          <font>
             <Font size="64.0" />
          </font>
       </Text>
-      <Button fx:id="Start" layoutX="627.0" layoutY="317.0" mnemonicParsing="false" onAction="#StartTimer" text="Start Timer" />
-      <Button fx:id="Snooze" layoutX="637.0" layoutY="358.0" mnemonicParsing="false" onAction="#SnoozeAction" text="Snooze" />
-      <Slider fx:id="TimeSlider" blockIncrement="1.0" layoutX="250.0" layoutY="248.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" value="1.0" />
-      <Slider fx:id="SnoozeSlider" blockIncrement="1.0" layoutX="250.0" layoutY="311.0" majorTickUnit="5.0" max="10.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" />
-      <Text layoutX="93.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Constraint" wrappingWidth="102.54296875">
+      <Button fx:id="Start" layoutX="627.0" layoutY="278.0" mnemonicParsing="false" onAction="#StartTimer" text="Start Timer" />
+      <Button fx:id="Snooze" layoutX="637.0" layoutY="329.0" mnemonicParsing="false" onAction="#SnoozeAction" text="Snooze" />
+      <Slider fx:id="TimeSlider" blockIncrement="1.0" layoutX="250.0" layoutY="239.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" value="1.0" />
+      <Slider fx:id="SnoozeSlider" blockIncrement="1.0" layoutX="250.0" layoutY="291.0" majorTickUnit="5.0" max="10.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" />
+      <Text layoutX="93.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Constraint" wrappingWidth="102.54296875">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="93.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Snooze Value" wrappingWidth="102.54296875">
+      <Text layoutX="93.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Snooze Value" wrappingWidth="102.54296875">
          <font>
             <Font size="14.0" />
          </font>
