@@ -1,3 +1,4 @@
+// author: Ahmad Samara
 package application;
 
 import javafx.event.ActionEvent;
@@ -21,7 +22,7 @@ public class ControllerdefectConsole {
 	public ControllerdefectConsole() {}
 	
 	@FXML
-	private void initialize() {
+	private void initialize() { //adding the dropdown items
 	
 		projectTyped.getItems().add("Business Project");
 		projectTyped.getItems().add("Development Project");
@@ -85,10 +86,17 @@ public class ControllerdefectConsole {
 		removedStep.getItems().add("Coach Meeting");
 		removedStep.getItems().add("Stakeholder Meeting");
 		
-		defectCat.getItems().add("Defect Type 1");
-		defectCat.getItems().add("Defect Type 2");
-		defectCat.getItems().add("Defect Type 3");
-		defectCat.getItems().add("Defect Type 4");
+		defectCat.getItems().add("10 Documentation");
+		defectCat.getItems().add("20 Syntax");
+		defectCat.getItems().add("30 Build, Package");
+		defectCat.getItems().add("40 Assignment");
+		defectCat.getItems().add("50 interface");
+		defectCat.getItems().add("60 Checking");
+		defectCat.getItems().add("70 Data");
+		defectCat.getItems().add("80 Function");
+		defectCat.getItems().add("90 System");
+		defectCat.getItems().add("100 Environment");
+		
 	
 	}
 	
@@ -119,12 +127,37 @@ public class ControllerdefectConsole {
 	}	
 	public void changeToLog(MouseEvent event)throws IOException {
 		Main m6 = new Main();
+		m6.changeScene("effortLoggerLogs.fxml");
 	}	
 	public void changeToUserStories(MouseEvent event)throws IOException {
 		Main m6 = new Main();
+		m6.changeScene("effortLoggerUserStories.fxml");
 	}
+	public void changeToPlanningPoker(MouseEvent event)throws IOException {
+		Main m6 = new Main();
+		m6.changeScene("effortLoggerStory.fxml");
+	}
+	
+	
+	// this clock deals with page to page transitions
 
-	public String[] newDefect (ActionEvent event) throws IOException {
+	
+	
+	public boolean status = true;
+	
+	
+	public void statusClose(ActionEvent event) {
+		
+		status = false;
+	}
+	
+	public void statusOpen(ActionEvent event) {
+		
+		status = true;
+	}
+	
+	
+	public String[] newDefect (ActionEvent event) throws IOException {//creates a new defect from the selected options
 		String project = projectTyped.getValue();
 		String defect =  currentDefect.getValue();
 		String defectName = defectText.getText();
@@ -132,8 +165,10 @@ public class ControllerdefectConsole {
 		String stepWhenInjected = injectedStep.getValue();
 		String stepWhenRemoved = removedStep.getValue();
 		String defectCategory = defectCat.getValue();
+		String fixValue = fixText.getText();
+		String statusval = String.valueOf(status);
 		
-		String[] defectData = new String[] {project, defect, defectName, defectDisc, stepWhenInjected, stepWhenRemoved,defectCategory};
+		String[] defectData = new String[] {project, defect, defectName, defectDisc, stepWhenInjected, stepWhenRemoved,defectCategory,statusval,fixValue};
 		LogsData logs = new LogsData(true, true);
 		logs.addDefectData(defectData);
 		logs.saveDefectData();
@@ -141,6 +176,7 @@ public class ControllerdefectConsole {
 	
 	}
 	
+	//dropdown menus
 	@FXML
 	private ChoiceBox<String> projectTyped;
 	@FXML
@@ -155,6 +191,8 @@ public class ControllerdefectConsole {
     private TextField defectSymp;
     @FXML
     private TextField defectText;
+    @FXML
+    private TextField fixText;
 	
 	
 	
