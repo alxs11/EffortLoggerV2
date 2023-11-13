@@ -176,6 +176,7 @@ public class ControllerdefectConsole {
 	
 	}
 	
+	
 	//dropdown menus
 	@FXML
 	private ChoiceBox<String> projectTyped;
@@ -193,6 +194,18 @@ public class ControllerdefectConsole {
     private TextField defectText;
     @FXML
     private TextField fixText;
+    
+public void clearDefect(ActionEvent event) throws IOException {
+		
+		defectText.clear();
+		defectSymp.clear();
+		fixText.clear();
+		projectTyped.valueProperty().set(null);
+		currentDefect.valueProperty().set(null);
+		injectedStep.valueProperty().set(null);
+		removedStep.valueProperty().set(null);
+		defectCat.valueProperty().set(null);	
+}
 	
 	
 	

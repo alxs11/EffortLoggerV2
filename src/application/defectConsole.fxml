@@ -16,7 +16,7 @@
       <ChoiceBox fx:id="projectTyped" layoutX="500.0" layoutY="103.0" prefWidth="150.0" />
       <Label layoutX="400.0" layoutY="146.0" text="Current Defect:" />
       <ChoiceBox fx:id="currentDefect" layoutX="500.0" layoutY="142.0" prefWidth="150.0" />
-      <Button layoutX="300.0" layoutY="103.0" mnemonicParsing="false" text="Clear Defect" />
+      <Button layoutX="300.0" layoutY="103.0" mnemonicParsing="false" onAction="#clearDefect" text="Clear Defect" />
       <Button layoutX="300.0" layoutY="142.0" mnemonicParsing="false" onAction="#newDefect" text="New Defect" />
       <Label layoutX="180.0" layoutY="191.0" text="Define\Update Defect:" />
       <Label layoutX="490.0" layoutY="191.0" text="Status:" />
@@ -38,7 +38,7 @@
       <ChoiceBox fx:id="removedStep" layoutX="380.0" layoutY="303.0" prefWidth="150.0" />
       <ChoiceBox fx:id="defectCat" layoutX="570.0" layoutY="303.0" prefWidth="150.0" />
       <Button layoutX="190.0" layoutY="349.0" mnemonicParsing="false" onAction="#newDefect" text="Update Current Defect" />
-      <Button layoutX="390.0" layoutY="349.0" mnemonicParsing="false" text="Clear Current Defect" />
+      <Button layoutX="390.0" layoutY="349.0" mnemonicParsing="false" onAction="#clearDefect" text="Clear Current Defect" />
       <Button fx:id="EffortConsole" layoutX="580.0" layoutY="349.0" mnemonicParsing="false" onAction="#EffortLoggerConsole" text="EffortLogger Console" />
       <Pane prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;" />
       <Text layoutX="17.0" layoutY="45.0" onMouseClicked="#changeToConsole" onMousePressed="#changeToConsole" strokeType="OUTSIDE" strokeWidth="0.0" text="EffortLogger Console" wrappingWidth="97.60000610351562">
