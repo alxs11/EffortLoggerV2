@@ -102,5 +102,9 @@ public class ControllerLogs {
 		Main m1 = new Main();
 		m1.changeScene("FffortLoggerUserStories.fxml");
 	}
+	public void changeToUserStories(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("effortLoggerUserStories.fxml");
+	}
 
 }

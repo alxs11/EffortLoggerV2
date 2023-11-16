@@ -11,9 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.beans.value.*;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 public class ControllerELEditor {
 	@FXML private ChoiceBox<String> projectType;
@@ -114,7 +112,6 @@ public class ControllerELEditor {
 		Main m = new Main();
 		m.changeScene("LoginPage.fxml");
 	}
-
 	// reroute to next page
 	public void changeToConsole(MouseEvent event) throws IOException {
 		Main m1 = new Main();
@@ -125,7 +122,18 @@ public class ControllerELEditor {
 		Main m = new Main();
 		m.changeScene("effortLoggerStory.fxml");
 	}
-
+	public void changeToDefect(MouseEvent event) throws IOException {
+		Main m1 = new Main();
+		m1.changeScene("defectConsole.fxml");
+	}
+	public void changeToLog(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("effortLoggerLogs.fxml");
+	}
+	public void changeToUserStories(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("effortLoggerUserStories.fxml");
+	}
 	public void updateEntry(ActionEvent event) throws IOException {
 		System.out.print(itemSelected);
 		LogsData logs = new LogsData(true, false);
@@ -148,7 +156,6 @@ public class ControllerELEditor {
 		Main m1 = new Main();
 		m1.changeScene("effortLoggerEditor.fxml");
 	}
-
 	public void deleteEntry(ActionEvent event) throws IOException {
 		String [] d = {"" + itemSelected};
 		LogsData logs = new LogsData(true, false);
@@ -157,12 +164,6 @@ public class ControllerELEditor {
 
 	}
 	public void splitEntry(ActionEvent event) throws IOException {
-		
-	}
-	public void selectProject(ActionEvent event) throws IOException {
-		
-	}
-	public void selectEntry(ActionEvent event) throws IOException {
 		
 	}
 
