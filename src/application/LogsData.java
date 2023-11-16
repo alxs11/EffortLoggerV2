@@ -71,11 +71,7 @@ public class LogsData {
 		String[] out = new String[DefectLogs.size()];
 		for(int i = 0; i < DefectLogs.size(); i ++) {
 			out[i] = "" + (i + 1) + ".";
-			for (int t = 0; t < 7; t++) {
-				if(t == 3)
-					continue;
-				out[i] += "  " + DefectLogs.get(i)[t];
-			}
+			out[i] = out[i] + DefectLogs.get(i)[0]
 		}
 		return out;
 	}
