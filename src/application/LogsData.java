@@ -203,6 +203,14 @@ public class LogsData {
 			EffortLogs.remove(Integer.parseInt(replacement[0]) - 1);
 		}
 	};
+	public void modifyDefect(int Ptype, String[] replacement, int action) throws IOException{
+		if(action == 0) { //update
+			DefectLogs.set(Integer.parseInt(replacement[0]) - 1, replacement);
+		}
+		else if (action == 1) { // Delete
+			DefectLogs.remove(Integer.parseInt(replacement[0]) - 1);
+		}
+	}
 	//public Log[] developmentAsLogs() {} //probably necessary
 	public String deltaTime(String t1, String t2) {
 		//format hh:mm:ss
