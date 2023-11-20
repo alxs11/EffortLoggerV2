@@ -19,9 +19,9 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.io.IOException;
 
-public class ControllerEffortLoggerConsole {
+public class ControllerEffortLoggerDefinitions {
 	
-	public ControllerEffortLoggerConsole() {}
+	public ControllerEffortLoggerDefinitions() {}
 	
 	public static Timer effortTimer;
 	public static int effortSeconds;
