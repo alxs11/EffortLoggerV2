@@ -86,7 +86,9 @@ public class ControllerELEditor {
 		        		selectEntry.getItems().add(arr[i]);
 		        		System.out.print(arr[i]);
 		        	}
-
+	        	}
+	        	else {
+	        		
 	        	}
 	        }
 	    });
@@ -166,6 +168,8 @@ public class ControllerELEditor {
 		LogsData logs = new LogsData(true, false);
 		logs.modify(0, d, 1);
 	    logs.saveEffortData();
+		Main m1 = new Main();
+		m1.changeScene("effortLoggerEditor.fxml");
 
 	}
 	public void splitEntry(ActionEvent event) throws IOException {

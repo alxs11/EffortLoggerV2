@@ -191,16 +191,19 @@ public class LogsData {
 		return out;
 	}
 	public void modify(int Ptype, String[] replacement, int action) throws IOException{
-		if(action == 0) { //Update
+		if(action == 1) { //delete
+			EffortLogs.remove(Integer.parseInt(replacement[0]) - 1);
+		}
+		else if (action == 0 || action == 2) {
 			String [] r = new String[7];
 			System.arraycopy(replacement, 1, r, 0, 3);
 			System.arraycopy(replacement, 4, r, 4, 3);
 			r[3] = deltaTime(replacement[2], replacement[3]);
-			EffortLogs.set(Integer.parseInt(replacement[0])-1, r);
-			
-		}
-		else if (action == 1) { // Delete
-			EffortLogs.remove(Integer.parseInt(replacement[0]) - 1);
+			if (action == 0) //update
+				EffortLogs.set(Integer.parseInt(replacement[0])-1, r);
+			else //split
+				EffortLogs.add(r);
+
 		}
 	};
 	public void modifyDefect(int Ptype, String[] replacement, int action) throws IOException{
