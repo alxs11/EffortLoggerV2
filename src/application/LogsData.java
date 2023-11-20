@@ -70,11 +70,7 @@ public class LogsData {
 		String[] out = new String[DefectLogs.size()];
 		for(int i = 0; i < DefectLogs.size(); i ++) {
 			out[i] = "" + (i + 1) + ".";
-			for (int t = 0; t < 7; t++) {
-				if(t == 3)
-					continue;
-				out[i] += "  " + DefectLogs.get(i)[t];
-			}
+			out[i] = out[i] + String.join("  ", DefectLogs.get(i));
 		}
 		return out;
 	}
@@ -207,6 +203,14 @@ public class LogsData {
 			EffortLogs.remove(Integer.parseInt(replacement[0]));
 		}
 	};
+	public void modifyDefect(int Ptype, String[] replacement, int action) throws IOException{
+		if(action == 0) { //update
+			DefectLogs.set(Integer.parseInt(replacement[0]) - 1, replacement);
+		}
+		else if (action == 1) { // Delete
+			DefectLogs.remove(Integer.parseInt(replacement[0]) - 1);
+		}
+	}
 	//public Log[] developmentAsLogs() {} //probably necessary
 	public String deltaTime(String t1, String t2) {
 		//format hh:mm:ss
