@@ -5,6 +5,7 @@ package application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import java.io.IOException;
@@ -21,6 +22,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
@@ -41,6 +43,8 @@ public class ControllerPPStories implements Initializable {
     @FXML private Button Start;
     @FXML private Slider SnoozeSlider; //snooze time value
     @FXML private Slider TimeSlider; //timer value
+	Stage stage;
+	Scene scene;
     boolean value = true;
 
     Main m3 = new Main();
@@ -58,7 +62,9 @@ public class ControllerPPStories implements Initializable {
 			
 			if(i == 0) {
 				try {
-					m3.changeScene("effortLoggerPageThree.fxml");
+					if(stage != null)
+						stage.close();
+					m3.changeScene("effortLoggerScore.fxml");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -96,6 +102,31 @@ public class ControllerPPStories implements Initializable {
 	public void prevPage(ActionEvent event) throws IOException {
 		Main m2 = new Main();
 		m2.changeScene("effortLoggerConsole.fxml");
+	}
+	@FXML private ToggleButton logs;
+
+	public void openLogsWindow(ActionEvent event) throws IOException{
+		try {
+			if(logs.isSelected()) {
+		        FXMLLoader fxmlLoader = new FXMLLoader();
+		        fxmlLoader.setLocation(getClass().getResource("effortLoggerLogs2.fxml"));
+		        scene = new Scene(fxmlLoader.load(), 800, 500);
+		        stage = new Stage();
+		        stage.setResizable(false);
+		        stage.setTitle("Logs");
+		        stage.setScene(scene);
+		        stage.show();
+		        logs.setText("Close Logs");
+	        }
+			else {
+				stage.close();
+				logs.setText("See Logs");
+				}
+			}
+	    catch (IOException e) {
+	    	e.printStackTrace();
+	    }
+
 	}
 
 
