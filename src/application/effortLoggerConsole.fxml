@@ -83,10 +83,5 @@
             </Text>
          </children>
       </Pane>
-      <Button fx:id="editDefinitions" layoutX="200.0" layoutY="260.0" mnemonicParsing="false" onAction="#stopActivity" prefWidth="100.0" text="Edit Definitions">
-         <font>
-            <Font name="Corbel" size="12.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>
