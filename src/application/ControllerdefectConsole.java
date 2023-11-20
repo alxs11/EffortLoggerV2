@@ -3,6 +3,8 @@ package application;
 
 import javafx.event.ActionEvent;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,6 +15,8 @@ import javafx.scene.control.TextField;
 
 import java.util.*;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.awt.TextArea;
 import java.io.IOException;
 
@@ -20,17 +24,31 @@ public class ControllerdefectConsole {
 	
 	
 	public ControllerdefectConsole() {}
-	
+	//dropdown menus
+		@FXML
+		private ChoiceBox<String> projectTyped;
+		@FXML
+		private ChoiceBox<String> currentDefect;
+		@FXML
+		private ChoiceBox<String> injectedStep;
+		@FXML
+		private ChoiceBox<String> removedStep;
+		@FXML
+		private ChoiceBox<String> defectCat;
+		@FXML
+	    private TextField defectSymp;
+	    @FXML
+	    private TextField defectText;
+	    @FXML
+	    private TextField fixText;
+	    public int itemSelected;
 	@FXML
 	private void initialize() { //adding the dropdown items
 	
 		projectTyped.getItems().add("Business Project");
 		projectTyped.getItems().add("Development Project");
 		
-		currentDefect.getItems().add("Defect1");
-		currentDefect.getItems().add("Defect2");
-		currentDefect.getItems().add("Defect3");
-		currentDefect.getItems().add("Defect4");
+		
 		
 		injectedStep.getItems().add("Problem Understanding");
 		injectedStep.getItems().add("Conceptual Design Plan");
@@ -97,6 +115,47 @@ public class ControllerdefectConsole {
 		defectCat.getItems().add("90 System");
 		defectCat.getItems().add("100 Environment");
 		
+		
+		projectTyped.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+		    @Override
+		    public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
+		    	LogsData datas = new LogsData(false, true);
+
+		    	if((projectTyped.getItems().get((Integer) number2)).equals("Business Project")){
+		        	System.out.println(projectTyped.getItems().get((Integer) number2));
+		        	String[] arr = datas.filterDefectData(0);
+		        	
+		        	for(int i=0; i < arr.length; i++){
+		        		System.out.print(arr[i]);
+		        		currentDefect.getItems().add(arr[i]);
+		        	}
+
+		    	}
+		    }
+		});
+		
+		 currentDefect.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+		        @Override
+		        public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
+		        	String [] vals = currentDefect.getItems().get((Integer) number2).split("  ");
+		        	System.out.print("\n");
+		        	for(int i =0; i < vals.length; i++) {System.out.print(vals[i]);}
+		        	
+		        	String itemSelectstr = vals[0];
+		        	System.out.print("\n");
+		        	System.out.print(itemSelectstr);
+
+		        	itemSelected = Integer.parseInt(itemSelectstr.substring(0, itemSelectstr.length()-1));
+		        	System.out.print("\n");
+		        	System.out.print(itemSelected);
+		        	
+		        	injectedStep.setValue(""+vals[3]);
+		        	defectCat.setValue(vals[5]);
+		        	defectText.setText(vals[1]);
+		        	defectSymp.setText(vals[2]);
+		        	removedStep.setValue(vals[4]);
+		        }
+		    });
 	
 	}
 	
@@ -168,44 +227,50 @@ public class ControllerdefectConsole {
 		String fixValue = fixText.getText();
 		String statusval = String.valueOf(status);
 		
-		String[] defectData = new String[] {project, defect, defectName, defectDisc, stepWhenInjected, stepWhenRemoved,defectCategory,statusval,fixValue};
-		LogsData logs = new LogsData(true, true);
+		String[] defectData = new String[] {defectName, defectDisc, stepWhenInjected, stepWhenRemoved,defectCategory,statusval,fixValue};
+		LogsData logs = new LogsData(false, true);
 		logs.addDefectData(defectData);
 		logs.saveDefectData();
 		return defectData;	
 	
 	}
-	
-	
-	//dropdown menus
-	@FXML
-	private ChoiceBox<String> projectTyped;
-	@FXML
-	private ChoiceBox<String> currentDefect;
-	@FXML
-	private ChoiceBox<String> injectedStep;
-	@FXML
-	private ChoiceBox<String> removedStep;
-	@FXML
-	private ChoiceBox<String> defectCat;
-	@FXML
-    private TextField defectSymp;
-    @FXML
-    private TextField defectText;
-    @FXML
-    private TextField fixText;
-    
+	  
 public void clearDefect(ActionEvent event) throws IOException {
 		
-		defectText.clear();
-		defectSymp.clear();
-		fixText.clear();
-		projectTyped.valueProperty().set(null);
-		currentDefect.valueProperty().set(null);
-		injectedStep.valueProperty().set(null);
-		removedStep.valueProperty().set(null);
-		defectCat.valueProperty().set(null);	
+	Main m1 = new Main();
+	m1.changeScene("defectConsole.fxml");
+
+
 }
+public void updateEntry(ActionEvent event) throws IOException {
+	
+	LogsData logs = new LogsData(false, true);
+    logs.modifyDefect(0, updateEntry1(), 0);
+    logs.saveDefectData();
+}
+public String [] updateEntry1() throws IOException {
+	//ArrayList<String> strArr = new ArrayList<String>();
+	String [] strArr = new String [7];
+    strArr[0] = String.valueOf(itemSelected);
+    strArr[1] = defectText.getText();
+    strArr[2] = defectSymp.getText();
+    strArr[3] = injectedStep.getValue();
+    strArr[4] = removedStep.getValue();
+    strArr[5] = defectCat.getValue();
+    System.out.print(strArr[0]);
+	return strArr;
+}
+
+public void delete() throws IOException{
+	
+	LogsData logs = new LogsData(false, true);
+	String [] d = {"" + itemSelected};
+	logs.modifyDefect(0, d, 1);
+	logs.saveDefectData();
+	Main m1 = new Main();
+	m1.changeScene("defectConsole.fxml");
+}
+
 	
 	
 	

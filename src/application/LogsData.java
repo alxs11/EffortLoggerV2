@@ -69,7 +69,7 @@ public class LogsData {
 		//type: 0 = Business, 1 = Development
 		String[] out = new String[DefectLogs.size()];
 		for(int i = 0; i < DefectLogs.size(); i ++) {
-			out[i] = "" + (i + 1) + ".";
+			out[i] = "" + (i + 1) + ".  ";
 			out[i] = out[i] + String.join("  ", DefectLogs.get(i));
 		}
 		return out;

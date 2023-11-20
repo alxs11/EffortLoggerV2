@@ -84,6 +84,7 @@ public class ControllerELEditor {
 		        	String[] arr = datas.filterData(0);
 		        	for(int i=0; i < arr.length; i++){
 		        		selectEntry.getItems().add(arr[i]);
+		        		System.out.print(arr[i]);
 		        	}
 
 	        	}
@@ -95,6 +96,10 @@ public class ControllerELEditor {
 	        public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
 	        	String [] vals = selectEntry.getItems().get((Integer) number2).split("  ");
 	        	String itemSelectstr = vals[0];
+	        	
+	        	System.out.print("\n");
+	        	System.out.print(itemSelectstr);
+	        	
 	        	itemSelected = Integer.parseInt(itemSelectstr.substring(0, itemSelectstr.length()-1));
 	        	
 	        	lifeCycleStep.setValue(""+vals[4]);
