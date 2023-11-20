@@ -1,24 +1,12 @@
 // Author: Jake Gresh
 package application;
 
-import javafx.application.Platform;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.util.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,20 +16,22 @@ public class ControllerEffortLoggerDefinitions {
 	
 	public ControllerEffortLoggerDefinitions() {}
 	
+	// Declare TextAreas
 	@FXML public TextArea projectType;
 	@FXML public TextArea lifeCycleStep;
 	@FXML public TextArea effortCategory;
 	@FXML public TextArea deliverable;
 	
+	// 2d array of 100 strings for each of the 4 categories
 	private String[][] definitions = new String[4][100];
 	
 	@FXML
-	private void initialize() {
+	private void initialize() { // on page load:
 		loadDefinitionsFile();
 		updateTextAreas();
 	}
 	
-	private void updateTextAreas() { // When the page is loaded, update the text boxes
+	private void updateTextAreas() { // When the page is loaded, update the text boxes:
 		String projectTypeString = "";
 		String lifeCycleStepString = "";
 		String effortCategoryString = "";
@@ -70,7 +60,7 @@ public class ControllerEffortLoggerDefinitions {
 		deliverable.setText(deliverableString);
 	}
 	
-	private void getTextAreas() { // When the save button is clicked, get data from the text boxes
+	private void getTextAreas() { // When the save button is clicked, get data from the text boxes:
 		String projectTypeString = projectType.getText();
 		String lifeCycleStepString = lifeCycleStep.getText();
 		String effortCategoryString = effortCategory.getText();
@@ -109,7 +99,7 @@ public class ControllerEffortLoggerDefinitions {
 		s4.close();
 	}
 	
-	private void loadDefinitionsFile() { // When the page is loaded, get data from the text file
+	private void loadDefinitionsFile() { // When the page is loaded, get data from the text file:
 		try {
 			File file = new File("definitions");
 			Scanner input = new Scanner(file);
@@ -117,7 +107,6 @@ public class ControllerEffortLoggerDefinitions {
 			for (int j = 0; j < 4; j++) {
 				for (int i = 0; i < definitions[j].length; i++) {
 					definitions[j][i] = input.nextLine();
-					System.out.println(definitions[j][i]);
 				}
 			}
 			
@@ -128,7 +117,7 @@ public class ControllerEffortLoggerDefinitions {
 		}
 	}
 	
-	private void saveDefinitionsFile() { // When the save button is clicked, update the text file
+	private void saveDefinitionsFile() { // When the save button is clicked, update the text file:
 		try {
 			PrintWriter out = new PrintWriter("definitions");
 			for (int j = 0; j < 4; j++) {
@@ -142,6 +131,7 @@ public class ControllerEffortLoggerDefinitions {
 		}
 	}
 
+	// Save and go to console:
 	@FXML private Text saveButton;
 	public void saveClicked(MouseEvent event) throws IOException {
 		definitions = new String[4][100];
