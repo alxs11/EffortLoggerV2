@@ -41,14 +41,13 @@ public class ControllerEffortLoggerDefinitions {
 		updateTextAreas();
 	}
 	
-	private void updateTextAreas() {
+	private void updateTextAreas() { // When the page is loaded, update the text boxes
 		String projectTypeString = "";
 		String lifeCycleStepString = "";
 		String effortCategoryString = "";
 		String deliverableString = "";
 		
 		for (int i = 0; i < definitions[0].length; i++) {
-			System.out.println(definitions[0][i] + " 0 " + i);
 			if (!definitions[0][i].equals("null"))
 				projectTypeString += definitions[0][i] + "\n";
 		}
@@ -71,7 +70,7 @@ public class ControllerEffortLoggerDefinitions {
 		deliverable.setText(deliverableString);
 	}
 	
-	private void getTextAreas() {
+	private void getTextAreas() { // When the save button is clicked, get data from the text boxes
 		String projectTypeString = projectType.getText();
 		String lifeCycleStepString = lifeCycleStep.getText();
 		String effortCategoryString = effortCategory.getText();
@@ -89,7 +88,7 @@ public class ControllerEffortLoggerDefinitions {
 		int j = 0;
 		while (s2.hasNextLine()) {
 			definitions[1][j] = s2.nextLine();
-			i++;
+			j++;
 		}
 		s2.close();
 		
@@ -97,7 +96,7 @@ public class ControllerEffortLoggerDefinitions {
 		int k = 0;
 		while (s3.hasNextLine()) {
 			definitions[2][k] = s3.nextLine();
-			i++;
+			k++;
 		}
 		s3.close();
 		
@@ -105,12 +104,12 @@ public class ControllerEffortLoggerDefinitions {
 		int l = 0;
 		while (s4.hasNextLine()) {
 			definitions[3][l] = s4.nextLine();
-			i++;
+			l++;
 		}
 		s4.close();
 	}
 	
-	private void loadDefinitionsFile() { 
+	private void loadDefinitionsFile() { // When the page is loaded, get data from the text file
 		try {
 			File file = new File("definitions");
 			Scanner input = new Scanner(file);
@@ -129,12 +128,11 @@ public class ControllerEffortLoggerDefinitions {
 		}
 	}
 	
-	private void saveDefinitionsFile() {
+	private void saveDefinitionsFile() { // When the save button is clicked, update the text file
 		try {
 			PrintWriter out = new PrintWriter("definitions");
 			for (int j = 0; j < 4; j++) {
 				for (int i = 0; i < definitions[j].length; i++) {
-//					definitions[j][i] = j + " " + i;
 					out.printf(definitions[j][i] + "\n");
 				}
 			}
