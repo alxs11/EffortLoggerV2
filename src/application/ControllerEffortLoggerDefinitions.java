@@ -1,4 +1,4 @@
-// console functionality by Jake
+// Author: Jake Gresh
 package application;
 
 import javafx.application.Platform;
@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
@@ -17,219 +19,138 @@ import java.util.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class ControllerEffortLoggerDefinitions {
 	
 	public ControllerEffortLoggerDefinitions() {}
 	
-	public static Timer effortTimer;
-	public static int effortSeconds;
-	public static boolean effortTimerRunning;
-	private Timer labelTimer;
-	public static LocalTime effortStartTime;
+	@FXML public TextArea projectType;
+	@FXML public TextArea lifeCycleStep;
+	@FXML public TextArea effortCategory;
+	@FXML public TextArea deliverable;
+	
+	private String[][] definitions = new String[4][100];
 	
 	@FXML
 	private void initialize() {
-		labelTimer = new Timer();
-		TimerTask labelTask = new TimerTask() {
-			@Override
-			public void run() {
-				updateEffortTimeElapsedLabel();
-			}
-		};
-		labelTimer.scheduleAtFixedRate(labelTask, 0, 1000);
+		loadDefinitionsFile();
+		updateTextAreas();
+	}
+	
+	private void updateTextAreas() {
+		String projectTypeString = "";
+		String lifeCycleStepString = "";
+		String effortCategoryString = "";
+		String deliverableString = "";
 		
-		if (effortTimerRunning) {
-			newActivity.setDisable(true);
-			stopActivity.setDisable(false);
-		} else {
-			newActivity.setDisable(false);
-			stopActivity.setDisable(true);
+		for (int i = 0; i < definitions[0].length; i++) {
+			System.out.println(definitions[0][i] + " 0 " + i);
+			if (!definitions[0][i].equals("null"))
+				projectTypeString += definitions[0][i] + "\n";
+		}
+		for (int i = 0; i < definitions[1].length; i++) {
+			if (!definitions[1][i].equals("null"))
+				lifeCycleStepString += definitions[1][i] + "\n";
+		}
+		for (int i = 0; i < definitions[2].length; i++) {
+			if (!definitions[2][i].equals("null"))
+				effortCategoryString += definitions[2][i] + "\n";
+		}
+		for (int i = 0; i < definitions[3].length; i++) {
+			if (!definitions[3][i].equals("null"))
+				deliverableString += definitions[3][i] + "\n";
 		}
 		
-		// aligns with design goal: the organization will have the option to set dropdown options:
-		projectType.getItems().add("Business Project");
-		projectType.getItems().add("Development Project");
-		
-		lifeCycleStep.getItems().add("Problem Understanding");
-		lifeCycleStep.getItems().add("Conceptual Design Plan");
-		lifeCycleStep.getItems().add("Requirements");
-		lifeCycleStep.getItems().add("Conceptual Design");
-		lifeCycleStep.getItems().add("Conceptual Design Review");
-		lifeCycleStep.getItems().add("Detailed Design Plan");
-		lifeCycleStep.getItems().add("Detailed Design/Prototype");
-		lifeCycleStep.getItems().add("Detailed Design Review");
-		lifeCycleStep.getItems().add("Implementation Plan");
-		lifeCycleStep.getItems().add("Test Case Generation");
-		lifeCycleStep.getItems().add("Solution Specification");
-		lifeCycleStep.getItems().add("Solution Review");
-		lifeCycleStep.getItems().add("Solution Implementation");
-		lifeCycleStep.getItems().add("Unit/System Test");
-		lifeCycleStep.getItems().add("Reflection");
-		lifeCycleStep.getItems().add("Repository Update");
-		lifeCycleStep.getItems().add("Planning");
-		lifeCycleStep.getItems().add("Information Gathering");
-		lifeCycleStep.getItems().add("Information Understanding");
-		lifeCycleStep.getItems().add("Verifying");
-		lifeCycleStep.getItems().add("Outlining");
-		lifeCycleStep.getItems().add("Drafting");
-		lifeCycleStep.getItems().add("Finalizing");
-		lifeCycleStep.getItems().add("Team Meeting");
-		lifeCycleStep.getItems().add("Coach Meeting");
-		lifeCycleStep.getItems().add("Stakeholder Meeting");
-		
-		effortCategory.getItems().add("Plans");
-		effortCategory.getItems().add("Deliverables");
-		effortCategory.getItems().add("Interruptions");
-		effortCategory.getItems().add("Defects");
-		effortCategory.getItems().add("Others");
-		
-		deliverable.getItems().add("Conceptual Design");
-		deliverable.getItems().add("Detailed Design");
-		deliverable.getItems().add("Test Cases");
-		deliverable.getItems().add("Solution");						
-		deliverable.getItems().add("Reflection");
-		deliverable.getItems().add("Outline");
-		deliverable.getItems().add("Draft");
-		deliverable.getItems().add("Report");
-//		deliverable.getItems().add("User Defined");	
-		deliverable.getItems().add("Other");
+		projectType.setText(projectTypeString);
+		lifeCycleStep.setText(lifeCycleStepString);
+		effortCategory.setText(effortCategoryString);
+		deliverable.setText(deliverableString);
 	}
 	
-	// timer start button:
-	@FXML
-	private Button newActivity;
-	public void newActivity(ActionEvent event) throws IOException {
-		stopActivity.setDisable(false);
-		newActivity.setDisable(true); 
+	private void getTextAreas() {
+		String projectTypeString = projectType.getText();
+		String lifeCycleStepString = lifeCycleStep.getText();
+		String effortCategoryString = effortCategory.getText();
+		String deliverableString = deliverable.getText();
 		
-		effortTimerRunning = true;
-		effortSeconds = 0;
-		updateEffortTimeElapsedLabel();
-		effortStartTime = LocalTime.now();
+		Scanner s1 = new Scanner(projectTypeString);
+		int i = 0;
+		while (s1.hasNextLine()) {
+			definitions[0][i] = s1.nextLine();
+			i++;
+		}
+		s1.close();
 		
-		effortTimer = new Timer();
-		TimerTask effortTask = new TimerTask() {
-			@Override
-			public void run() {
-				effortSeconds++;
+		Scanner s2 = new Scanner(lifeCycleStepString);
+		int j = 0;
+		while (s2.hasNextLine()) {
+			definitions[1][j] = s2.nextLine();
+			i++;
+		}
+		s2.close();
+		
+		Scanner s3 = new Scanner(effortCategoryString);
+		int k = 0;
+		while (s3.hasNextLine()) {
+			definitions[2][k] = s3.nextLine();
+			i++;
+		}
+		s3.close();
+		
+		Scanner s4 = new Scanner(deliverableString);
+		int l = 0;
+		while (s4.hasNextLine()) {
+			definitions[3][l] = s4.nextLine();
+			i++;
+		}
+		s4.close();
+	}
+	
+	private void loadDefinitionsFile() { 
+		try {
+			File file = new File("definitions");
+			Scanner input = new Scanner(file);
+			
+			for (int j = 0; j < 4; j++) {
+				for (int i = 0; i < definitions[j].length; i++) {
+					definitions[j][i] = input.nextLine();
+					System.out.println(definitions[j][i]);
+				}
 			}
-		};
-		effortTimer.scheduleAtFixedRate(effortTask, 1000, 1000);
+			
+			input.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
-	// aligns with design goal: button disabling means unintended inputs can't be accessed
-	
-	// stopwatch stop button: 
-	@FXML
-	private Button stopActivity;
-	public void stopActivity(ActionEvent event) throws IOException {
-		stopActivity.setDisable(true);
-		newActivity.setDisable(false);
+	private void saveDefinitionsFile() {
+		try {
+			PrintWriter out = new PrintWriter("definitions");
+			for (int j = 0; j < 4; j++) {
+				for (int i = 0; i < definitions[j].length; i++) {
+//					definitions[j][i] = j + " " + i;
+					out.printf(definitions[j][i] + "\n");
+				}
+			}
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML private Text saveButton;
+	public void saveClicked(MouseEvent event) throws IOException {
+		definitions = new String[4][100];
+		getTextAreas();
+		saveDefinitionsFile();
 		
-		effortTimer.cancel(); // terminates timer, value has been saved in effortSeconds
-		effortTimerRunning = false;
-		
-		String date = LocalDate.now().toString();
-		String start = effortStartTime.truncatedTo(ChronoUnit.SECONDS).toString();
-		String stop = LocalTime.now().truncatedTo(ChronoUnit.SECONDS).toString();
-		String time = formatTime(effortSeconds);
-		String step = lifeCycleStep.getValue();
-		String cat = effortCategory.getValue();
-		String del = deliverable.getValue();
-		
-		String[] effortData = new String[] {date, start, stop, time, step, cat, del};
-		newEffort(effortData);
-	}
-	
-	public String[] newEffort (String effortData[]) throws IOException {
-
-		
-		LogsData logs = new LogsData(true, true);
-		logs.addEffortData(effortData);
-		logs.saveEffortData();
-		return effortData;
-	}
-	
-	// declare dropdowns:
-	@FXML
-	private ChoiceBox<String> projectType;
-	@FXML
-	private ChoiceBox<String> lifeCycleStep;
-	@FXML
-	private ChoiceBox<String> effortCategory;
-	@FXML
-	private ChoiceBox<String> deliverable;
-	
-	@FXML
-	private Label elapsedTime;
-	private void updateEffortTimeElapsedLabel() {
-		Platform.runLater(() -> {
-			elapsedTime.setText("Elapsed Time: " + formatTime(effortSeconds));
-		});
-	}
-	// take int seconds and return a string in the format of "00h00m00s":
-	public static String formatTime(int seconds) {
-	    int hours = seconds / 3600;
-	    int minutes = (seconds % 3600) / 60;
-	    int remainingSeconds = seconds % 60;
-
-	    String formattedTime = String.format("%02dh%02dm%02ds", hours, minutes, remainingSeconds);
-
-	    return formattedTime;
-	}
-
-	@FXML private Button logout;
-	public void logoutUser(MouseEvent event) throws IOException {
-		labelTimer.cancel();
 		Main m = new Main();
-		m.changeScene("LoginPage.fxml");
+		m.changeScene("effortLoggerConsole.fxml");
 	}
-	
-	@FXML private Text next;
-	public void nextPage(MouseEvent mouse) throws IOException {
-		labelTimer.cancel();
-		Main m = new Main();
-		m.changeScene("effortLoggerStory.fxml");
-	}
-	
-	@FXML
-	public void changeToEditor(MouseEvent mouse) throws IOException {
-		labelTimer.cancel();
-		Main m = new Main();
-		m.changeScene("effortLoggerEditor.fxml");
-		System.out.print("editor");
-	}
-	
-	// open employee list database for testing:
-	@FXML
-	private Button employeeList;
-	public void employeeListPage(ActionEvent event) throws IOException {
-		labelTimer.cancel();
-		Main m = new Main();
-		m.changeScene("EmployeeListPage.fxml");
-	}
-	
-	@FXML private Button defectbutton;
-	public void defectConsole(MouseEvent event) throws IOException{
-		labelTimer.cancel();
-		Main m = new Main();
-		m.changeScene("defectConsole.fxml");
-	}
-	
-	@FXML private Text userStoryTab;
-	public void enterUserStories(MouseEvent event) throws IOException {
-		labelTimer.cancel();
-		Main m = new Main();
-		m.changeScene("EffortLoggerUserStories.fxml");
-	}
-
-	@FXML private Text logsButton;
-	public void effortDefectLogs(MouseEvent event) throws IOException{
-		labelTimer.cancel();
-		Main m = new Main();
-		m.changeScene("effortLoggerLogs.fxml");
-	}
-	
 }

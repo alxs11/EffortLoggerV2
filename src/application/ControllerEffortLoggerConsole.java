@@ -1,4 +1,4 @@
-// console functionality by Jake
+// Author: Jake Gresh
 package application;
 
 import javafx.application.Platform;
@@ -232,4 +232,11 @@ public class ControllerEffortLoggerConsole {
 		m.changeScene("effortLoggerLogs.fxml");
 	}
 	
+	
+	@FXML private Text definitionsButton;
+	public void enterDefinitions(MouseEvent event) throws IOException{
+		labelTimer.cancel();
+		Main m = new Main();
+		m.changeScene("effortLoggerDefinitions.fxml");
+	}
 }
