@@ -26,42 +26,7 @@
       <Label layoutX="665.0" layoutY="100.0" text="Deliverable/etc.:" />
       <Pane layoutY="-1.0" prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;">
          <children>
-            <Text layoutX="27.0" layoutY="479.0" onMouseClicked="#logoutUser" onMousePressed="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out" wrappingWidth="80.0">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="next" layoutX="27.0" layoutY="427.0" onMouseClicked="#nextPage" onMousePressed="#nextPage" strokeType="OUTSIDE" strokeWidth="0.0" text="Planning Poker" wrappingWidth="80.0">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
-            <Text layoutX="18.0" layoutY="99.0" onMouseClicked="#changeToEditor" onMousePressed="#changeToEditor" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Editor" wrappingWidth="97.60000610351562">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
-            <Text layoutX="18.0" layoutY="155.0" onMouseClicked="#defectConsole" onMousePressed="#defectConsole" strokeType="OUTSIDE" strokeWidth="0.0" text="Defect Log Console" wrappingWidth="97.60000610351562">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
-            <Text layoutX="18.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="logsButton" layoutX="18.0" layoutY="247.0" onMouseClicked="#effortDefectLogs" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort and Defect Log" wrappingWidth="97.60000610351562">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
-            <Text layoutX="17.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort Logger Console" wrappingWidth="97.60000610351562">
-               <font>
-                  <Font name="Corbel Light" size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="userStoryTab" layoutX="17.0" layoutY="301.0" onMouseClicked="#enterUserStories" strokeType="OUTSIDE" strokeWidth="0.0" text="User Stories" wrappingWidth="97.60000610351562">
+            <Text fx:id="save" layoutX="27.0" layoutY="479.0" onMouseClicked="#logoutUser" onMousePressed="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Save" wrappingWidth="80.0">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
