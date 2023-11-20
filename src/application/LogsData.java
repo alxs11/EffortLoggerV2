@@ -203,6 +203,7 @@ public class LogsData {
 				EffortLogs.set(Integer.parseInt(replacement[0])-1, r);
 			else //split
 				EffortLogs.add(r);
+
 		}
 	};
 	public void modifyDefect(int Ptype, String[] replacement, int action) throws IOException{
