@@ -61,7 +61,7 @@
                   <Font name="Corbel Light" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="18.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
+            <Text fx:id="definitionsButton" layoutX="18.0" layoutY="210.0" onMouseClicked="#enterDefinitions" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>

@@ -26,7 +26,7 @@
       <Label layoutX="665.0" layoutY="100.0" text="Deliverable/etc.:" />
       <Pane layoutY="-1.0" prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;">
          <children>
-            <Text fx:id="save" layoutX="27.0" layoutY="479.0" onMouseClicked="#logoutUser" onMousePressed="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Save" wrappingWidth="80.0">
+            <Text fx:id="saveButton" layoutX="27.0" layoutY="479.0" onMouseClicked="#saveClicked" onMousePressed="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Save" wrappingWidth="80.0">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
