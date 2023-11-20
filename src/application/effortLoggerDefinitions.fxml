@@ -33,9 +33,9 @@
             </Text>
          </children>
       </Pane>
-      <TextArea layoutX="140.0" layoutY="149.0" prefHeight="340.0" prefWidth="130.0" />
-      <TextArea layoutX="315.0" layoutY="149.0" prefHeight="340.0" prefWidth="130.0" />
-      <TextArea layoutX="490.0" layoutY="150.0" prefHeight="340.0" prefWidth="130.0" />
-      <TextArea layoutX="665.0" layoutY="149.0" prefHeight="340.0" prefWidth="130.0" />
+      <TextArea fx:id="projectType" layoutX="140.0" layoutY="149.0" prefHeight="340.0" prefWidth="130.0" />
+      <TextArea fx:id="lifeCycleStep" layoutX="315.0" layoutY="149.0" prefHeight="340.0" prefWidth="130.0" />
+      <TextArea fx:id="effortCategory" layoutX="490.0" layoutY="150.0" prefHeight="340.0" prefWidth="130.0" />
+      <TextArea fx:id="deliverable" layoutX="665.0" layoutY="149.0" prefHeight="340.0" prefWidth="130.0" />
    </children>
 </AnchorPane>
