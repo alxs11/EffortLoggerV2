@@ -169,7 +169,14 @@ public class ControllerELEditor {
 
 	}
 	public void splitEntry(ActionEvent event) throws IOException {
-		
+		LogsData logs = new LogsData(true, false);
+		logs.modify(0, updateEntry1(), 2);
+		logs.saveEffortData();
+		Main m1 = new Main();
+		m1.changeScene("effortLoggerEditor.fxml");
+		String[] arr = updateEntry1();
+		for(int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i]+" ");
+		}
 	}
-
 }
