@@ -50,7 +50,7 @@ public class ControllerPPStories implements Initializable {
     	
     	TextTimer.setText(String.valueOf(i));
     	
-		Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(1), e -> {
+		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
 			
 			i--;
 			TextTimer.setText(String.valueOf(i));
