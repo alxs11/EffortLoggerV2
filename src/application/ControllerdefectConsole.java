@@ -162,39 +162,40 @@ public class ControllerdefectConsole {
 	@FXML private Button logout;
 	
 	public void logoutUser(ActionEvent event) throws IOException {
-		Main m6 = new Main();
-		m6.changeScene("LoginPage.fxml");
+		Main m = new Main();
+		m.changeScene("LoginPage.fxml");
 	}
 	
 	@FXML private Button EffortConsole;
 
 	public void EffortLoggerConsole(ActionEvent event) throws IOException {
-		Main m7 = new Main();
-		m7.changeScene("effortLoggerConsole.fxml");
+		Main m = new Main();
+		m.changeScene("effortLoggerConsole.fxml");
 	}
 	
 	public void changeToConsole(MouseEvent event)throws IOException {
-		Main m6 = new Main();
-		m6.changeScene("effortLoggerConsole.fxml");
+		Main m = new Main();
+		m.changeScene("effortLoggerConsole.fxml");
 	}
 	public void changeToEditor(MouseEvent event)throws IOException {
-		Main m6 = new Main();
-		m6.changeScene("effortLoggerEditor.fxml");
+		Main m = new Main();
+		m.changeScene("effortLoggerEditor.fxml");
 	}	
 	public void changeToDefinition(MouseEvent event)throws IOException {
-		Main m6 = new Main();
+		Main m = new Main();
+		m.changeScene("effortLoggerDefinitions.fxml");
 	}	
 	public void changeToLog(MouseEvent event)throws IOException {
-		Main m6 = new Main();
-		m6.changeScene("effortLoggerLogs.fxml");
+		Main m = new Main();
+		m.changeScene("effortLoggerLogs.fxml");
 	}	
 	public void changeToUserStories(MouseEvent event)throws IOException {
-		Main m6 = new Main();
-		m6.changeScene("effortLoggerUserStories.fxml");
+		Main m = new Main();
+		m.changeScene("effortLoggerUserStories.fxml");
 	}
 	public void changeToPlanningPoker(MouseEvent event)throws IOException {
-		Main m6 = new Main();
-		m6.changeScene("effortLoggerStory.fxml");
+		Main m = new Main();
+		m.changeScene("effortLoggerUserStories.fxml");
 	}
 	
 	
