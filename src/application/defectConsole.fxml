@@ -71,7 +71,7 @@
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="27.0" layoutY="479.0" onMouseClicked="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Signout" wrappingWidth="97.60000610351562">
+      <Text layoutX="27.0" layoutY="479.0" onMouseClicked="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>

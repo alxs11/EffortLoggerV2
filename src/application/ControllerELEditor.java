@@ -121,8 +121,8 @@ public class ControllerELEditor {
 	}
 	// reroute to next page
 	public void changeToConsole(MouseEvent event) throws IOException {
-		Main m1 = new Main();
-		m1.changeScene("effortLoggerConsole.fxml");
+		Main m = new Main();
+		m.changeScene("effortLoggerConsole.fxml");
 	}
 	// reroute to prev Page
 	public void changeToStory(MouseEvent event) throws IOException {
@@ -130,8 +130,8 @@ public class ControllerELEditor {
 		m.changeScene("effortLoggerStory.fxml");
 	}
 	public void changeToDefect(MouseEvent event) throws IOException {
-		Main m1 = new Main();
-		m1.changeScene("defectConsole.fxml");
+		Main m = new Main();
+		m.changeScene("defectConsole.fxml");
 	}
 	public void changeToLog(MouseEvent event) throws IOException {
 		Main m = new Main();
@@ -140,6 +140,10 @@ public class ControllerELEditor {
 	public void changeToUserStories(MouseEvent event) throws IOException {
 		Main m = new Main();
 		m.changeScene("effortLoggerUserStories.fxml");
+	}
+	public void changeToDefinitions(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("effortLoggerDefinitions.fxml");
 	}
 	public void updateEntry(ActionEvent event) throws IOException {
 		System.out.print(itemSelected);

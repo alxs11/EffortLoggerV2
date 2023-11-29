@@ -159,20 +159,14 @@ public class ControllerdefectConsole {
 	
 	}
 	
-	@FXML private Button logout;
-	
-	public void logoutUser(ActionEvent event) throws IOException {
+	public void logoutUser(MouseEvent event) throws IOException {
 		Main m = new Main();
 		m.changeScene("LoginPage.fxml");
 	}
-	
-	@FXML private Button EffortConsole;
-
 	public void EffortLoggerConsole(ActionEvent event) throws IOException {
 		Main m = new Main();
 		m.changeScene("effortLoggerConsole.fxml");
 	}
-	
 	public void changeToConsole(MouseEvent event)throws IOException {
 		Main m = new Main();
 		m.changeScene("effortLoggerConsole.fxml");
