@@ -6,11 +6,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class ControllerEffortLoggerDefinitions {
 	
@@ -27,7 +27,7 @@ public class ControllerEffortLoggerDefinitions {
 	
 	@FXML
 	private void initialize() { // on page load:
-		loadDefinitionsFile();
+		definitions = loadDefinitionsFile();
 		updateTextAreas();
 	}
 	
@@ -99,22 +99,23 @@ public class ControllerEffortLoggerDefinitions {
 		s4.close();
 	}
 	
-	private void loadDefinitionsFile() { // When the page is loaded, get data from the text file:
+	public static String[][] loadDefinitionsFile() { // When the page is loaded, get data from the text file:
+		String[][] defs = new String[4][100];
 		try {
 			File file = new File("definitions");
 			Scanner input = new Scanner(file);
 			
 			for (int j = 0; j < 4; j++) {
-				for (int i = 0; i < definitions[j].length; i++) {
-					definitions[j][i] = input.nextLine();
+				for (int i = 0; i < defs[j].length; i++) {
+					defs[j][i] = input.nextLine();
 				}
 			}
-			
 			input.close();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		return defs;
 	}
 	
 	private void saveDefinitionsFile() { // When the save button is clicked, update the text file:
