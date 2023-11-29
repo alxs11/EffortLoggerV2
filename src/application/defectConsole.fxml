@@ -61,17 +61,17 @@
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="18.0" layoutY="247.0" onMouseClicked="#changeToLog" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort and defect log" wrappingWidth="97.60000610351562">
+      <Text layoutX="18.0" layoutY="247.0" onMouseClicked="#changeToLog" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort and Defect Log" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="27.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planning Poker" wrappingWidth="97.60000610351562">
+      <Text layoutX="27.0" layoutY="427.0" onMouseClicked="#changeToPlanningPoker" strokeType="OUTSIDE" strokeWidth="0.0" text="Planning Poker" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="27.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Signout" wrappingWidth="97.60000610351562">
+      <Text layoutX="27.0" layoutY="479.0" onMouseClicked="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Signout" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>
