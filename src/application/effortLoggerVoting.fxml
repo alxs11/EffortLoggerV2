@@ -8,39 +8,39 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerPPVoting">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerPPVoting">
    <children>
-      <ButtonBar prefHeight="38.0" prefWidth="600.0" style="-fx-background-color: #cccccc;">
+      <ButtonBar prefHeight="38.0" prefWidth="800.0" style="-fx-background-color: #cccccc;">
         <buttons>
             <Button fx:id="previous" mnemonicParsing="false" onAction="#prevPage" text="Previous" />
             <Button layoutX="535.0" layoutY="47.0" mnemonicParsing="false" text="Next" />
           <Button fx:id="logout" mnemonicParsing="false" onAction="#logoutUser" text="Signout" />
         </buttons>
       </ButtonBar>
-      <Text layoutX="179.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voting User Stories" wrappingWidth="201.98828125">
+      <Text layoutX="303.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voting User Stories" wrappingWidth="201.98828125">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <TextArea layoutX="149.0" layoutY="103.0" prefHeight="80.0" prefWidth="202.0" text="Key Points&#10;- fvdsbgs&#10;- gdfsfds&#10;- vfdsnbhsds" />
-      <Text layoutX="205.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stories Points">
+      <TextArea layoutX="273.0" layoutY="139.0" prefHeight="80.0" prefWidth="202.0" text="Key Points&#10;- fvdsbgs&#10;- gdfsfds&#10;- vfdsnbhsds" />
+      <Text layoutX="329.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stories Points">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="27.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 1" />
-      <Text layoutX="27.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 2" />
-      <Text layoutX="27.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 3" />
-      <Text fx:id="round" layoutX="334.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="20.0" />
-      <Slider fx:id="memberOne" layoutX="89.0" layoutY="231.0" showTickLabels="true" showTickMarks="true" />
-      <Slider fx:id="memberTwo" layoutX="89.0" layoutY="267.0" showTickLabels="true" showTickMarks="true" />
-      <Slider fx:id="memberThree" layoutX="89.0" layoutY="305.0" showTickLabels="true" showTickMarks="true" />
-      <Text layoutX="323.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 4" />
-      <Text layoutX="323.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 5" />
-      <Text layoutX="323.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 6" />
-      <Slider fx:id="memberFour" layoutX="385.0" layoutY="222.0" showTickLabels="true" showTickMarks="true" />
-      <Slider fx:id="memberFive" layoutX="385.0" layoutY="258.0" showTickLabels="true" showTickMarks="true" />
-      <Slider fx:id="memberSix" layoutX="385.0" layoutY="296.0" showTickLabels="true" showTickMarks="true" />
-      <Button fx:id="submit" layoutX="464.0" layoutY="350.0" mnemonicParsing="false" onAction="#submitPoints" text="Submit" />
+      <Text layoutX="151.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 1" />
+      <Text layoutX="151.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 2" />
+      <Text layoutX="151.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 3" />
+      <Text fx:id="round" layoutX="458.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="20.0" />
+      <Slider fx:id="memberOne" layoutX="213.0" layoutY="267.0" showTickLabels="true" showTickMarks="true" />
+      <Slider fx:id="memberTwo" layoutX="213.0" layoutY="303.0" showTickLabels="true" showTickMarks="true" />
+      <Slider fx:id="memberThree" layoutX="213.0" layoutY="341.0" showTickLabels="true" showTickMarks="true" />
+      <Text layoutX="447.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 4" />
+      <Text layoutX="447.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 5" />
+      <Text layoutX="447.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member 6" />
+      <Slider fx:id="memberFour" layoutX="509.0" layoutY="258.0" showTickLabels="true" showTickMarks="true" />
+      <Slider fx:id="memberFive" layoutX="509.0" layoutY="294.0" showTickLabels="true" showTickMarks="true" />
+      <Slider fx:id="memberSix" layoutX="509.0" layoutY="332.0" showTickLabels="true" showTickMarks="true" />
+      <Button fx:id="submit" layoutX="588.0" layoutY="386.0" mnemonicParsing="false" onAction="#submitPoints" text="Submit" />
    </children>
 </AnchorPane>
