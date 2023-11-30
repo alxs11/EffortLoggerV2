@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerLogs">
+   <children>
+      <Pane layoutX="134.0" layoutY="-1.0" prefHeight="500.0" prefWidth="0.0" style="-fx-background-color: #dddddd;" />
+      <TableView fx:id="defectView" layoutX="2.0" layoutY="29.0" prefHeight="471.0" prefWidth="800.0">
+         <columns>
+            <TableColumn fx:id="C1" prefWidth="50.0" text="No." />
+            <TableColumn fx:id="C2" prefWidth="100.0" text="Name" />
+            <TableColumn fx:id="C3" prefWidth="200.0" text="Details" />
+            <TableColumn fx:id="C4" prefWidth="102.39996337890625" text="No. Injected" />
+            <TableColumn fx:id="C5" prefWidth="93.60003662109375" text="No. Removed" />
+            <TableColumn fx:id="C6" prefWidth="99.99993896484375" text="Category" />
+            <TableColumn fx:id="C7" editable="false" prefWidth="97.5999755859375" sortable="false" text="Status" />
+            <TableColumn fx:id="C8" prefWidth="117.5999755859375" text="Fix" />
+         </columns>
+      </TableView>
+      <TableView fx:id="effortView" layoutX="1.0" layoutY="29.0" prefHeight="471.0" prefWidth="800.0">
+        <columns>
+          <TableColumn fx:id="Column1" prefWidth="50.0" text="No." />
+            <TableColumn fx:id="Column2" prefWidth="100.0" text="Date" />
+            <TableColumn fx:id="Column3" prefWidth="100.0" text="Start Time" />
+            <TableColumn fx:id="Column4" prefWidth="100.0" text="Stop Time" />
+            <TableColumn fx:id="Column5" prefWidth="75.0" text="Time" />
+            <TableColumn fx:id="Column6" prefWidth="112.0" text="Life Cycle Step" />
+            <TableColumn fx:id="Column7" editable="false" prefWidth="106.39996337890625" sortable="false" text="Category" />
+          <TableColumn fx:id="Column8" prefWidth="200.0" text="Deliverable/Interruption/etc." />
+        </columns>
+      </TableView>
+      <ToggleButton fx:id="tb" layoutX="600.0" layoutY="2.0" mnemonicParsing="false" onAction="#disableEffortLog" text="See Defect Logs" />
+   </children>
+</AnchorPane>

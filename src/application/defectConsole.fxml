@@ -38,7 +38,7 @@
       <ChoiceBox fx:id="removedStep" layoutX="380.0" layoutY="303.0" prefWidth="150.0" />
       <ChoiceBox fx:id="defectCat" layoutX="570.0" layoutY="303.0" prefWidth="150.0" />
       <Button layoutX="190.0" layoutY="349.0" mnemonicParsing="false" onAction="#newDefect" text="Update Current Defect" />
-      <Button layoutX="390.0" layoutY="349.0" mnemonicParsing="false" onAction="#clearDefect" text="Clear Current Defect" />
+      <Button layoutX="390.0" layoutY="349.0" mnemonicParsing="false" onAction="#delete" text="Clear Current Defect" />
       <Button fx:id="EffortConsole" layoutX="580.0" layoutY="349.0" mnemonicParsing="false" onAction="#EffortLoggerConsole" text="EffortLogger Console" />
       <Pane prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;" />
       <Text layoutX="17.0" layoutY="45.0" onMouseClicked="#changeToConsole" onMousePressed="#changeToConsole" strokeType="OUTSIDE" strokeWidth="0.0" text="EffortLogger Console" wrappingWidth="97.60000610351562">
@@ -61,17 +61,17 @@
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="18.0" layoutY="247.0" onMouseClicked="#changeToLog" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort and defect log" wrappingWidth="97.60000610351562">
+      <Text layoutX="18.0" layoutY="247.0" onMouseClicked="#changeToLog" strokeType="OUTSIDE" strokeWidth="0.0" text="Effort and Defect Log" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="27.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planning Poker" wrappingWidth="97.60000610351562">
+      <Text layoutX="27.0" layoutY="427.0" onMouseClicked="#changeToPlanningPoker" strokeType="OUTSIDE" strokeWidth="0.0" text="Planning Poker" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="27.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Signout" wrappingWidth="97.60000610351562">
+      <Text layoutX="27.0" layoutY="479.0" onMouseClicked="#logoutUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out" wrappingWidth="97.60000610351562">
          <font>
             <Font name="Corbel Light" size="16.0" />
          </font>

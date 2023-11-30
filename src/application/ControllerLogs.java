@@ -1,7 +1,4 @@
-/**
-Author: Benjamin Paul
- * 
- */
+// Author: Benjamin Paul
 package application;
 
 import javafx.fxml.FXML;
@@ -10,7 +7,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import javafx.scene.control.ToggleButton;
 
 import java.io.IOException;
@@ -18,9 +14,6 @@ import java.io.IOException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
-/**
- * 
- */
 public class ControllerLogs {
 	@FXML private TableView<Log> effortView;
 	@FXML private TableColumn<Log, String> Column1;
@@ -81,30 +74,32 @@ public class ControllerLogs {
 		tb.setText(effortView.isDisable() ? "See Effort Logs" : "See Defect Logs");
 	}
 
-	@FXML private Button defectbutton;
 	public void defectConsole(MouseEvent event) throws IOException{
-		Main m1 = new Main();
-		m1.changeScene("defectConsole.fxml");
+		Main m = new Main();
+		m.changeScene("defectConsole.fxml");
 	}
 	public void toEffortConsole(MouseEvent event) throws IOException{
-		Main m1 = new Main();
-		m1.changeScene("effortLoggerConsole.fxml");
+		Main m = new Main();
+		m.changeScene("effortLoggerConsole.fxml");
 	}
 	public void toEditor(MouseEvent event) throws IOException{
-		Main m1 = new Main();
-		m1.changeScene("effortLoggerEditor.fxml");
+		Main m = new Main();
+		m.changeScene("effortLoggerEditor.fxml");
 	}
 	public void logOut(MouseEvent event) throws IOException{
-		Main m1 = new Main();
-		m1.changeScene("loginPage.fxml");
+		Main m = new Main();
+		m.changeScene("loginPage.fxml");
 	}
 	public void toPlanningPoker(MouseEvent event) throws IOException{
-		Main m1 = new Main();
-		m1.changeScene("FffortLoggerUserStories.fxml");
+		Main m = new Main();
+		m.changeScene("EffortLoggerStory.fxml");
 	}
 	public void changeToUserStories(MouseEvent event) throws IOException {
 		Main m = new Main();
 		m.changeScene("effortLoggerUserStories.fxml");
 	}
-
+	public void toDefinitions(MouseEvent event) throws IOException {
+		Main m = new Main();
+		m.changeScene("effortLoggerDefinitions.fxml");
+	}
 }

@@ -1,4 +1,4 @@
-// console functionality by Jake
+// Author: Jake Gresh
 package application;
 
 import javafx.application.Platform;
@@ -13,10 +13,11 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-import java.util.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.io.IOException;
 
 public class ControllerEffortLoggerConsole {
@@ -48,53 +49,20 @@ public class ControllerEffortLoggerConsole {
 			stopActivity.setDisable(true);
 		}
 		
-		// aligns with design goal: the organization will have the option to set dropdown options:
-		projectType.getItems().add("Business Project");
-		projectType.getItems().add("Development Project");
-		
-		lifeCycleStep.getItems().add("Problem Understanding");
-		lifeCycleStep.getItems().add("Conceptual Design Plan");
-		lifeCycleStep.getItems().add("Requirements");
-		lifeCycleStep.getItems().add("Conceptual Design");
-		lifeCycleStep.getItems().add("Conceptual Design Review");
-		lifeCycleStep.getItems().add("Detailed Design Plan");
-		lifeCycleStep.getItems().add("Detailed Design/Prototype");
-		lifeCycleStep.getItems().add("Detailed Design Review");
-		lifeCycleStep.getItems().add("Implementation Plan");
-		lifeCycleStep.getItems().add("Test Case Generation");
-		lifeCycleStep.getItems().add("Solution Specification");
-		lifeCycleStep.getItems().add("Solution Review");
-		lifeCycleStep.getItems().add("Solution Implementation");
-		lifeCycleStep.getItems().add("Unit/System Test");
-		lifeCycleStep.getItems().add("Reflection");
-		lifeCycleStep.getItems().add("Repository Update");
-		lifeCycleStep.getItems().add("Planning");
-		lifeCycleStep.getItems().add("Information Gathering");
-		lifeCycleStep.getItems().add("Information Understanding");
-		lifeCycleStep.getItems().add("Verifying");
-		lifeCycleStep.getItems().add("Outlining");
-		lifeCycleStep.getItems().add("Drafting");
-		lifeCycleStep.getItems().add("Finalizing");
-		lifeCycleStep.getItems().add("Team Meeting");
-		lifeCycleStep.getItems().add("Coach Meeting");
-		lifeCycleStep.getItems().add("Stakeholder Meeting");
-		
-		effortCategory.getItems().add("Plans");
-		effortCategory.getItems().add("Deliverables");
-		effortCategory.getItems().add("Interruptions");
-		effortCategory.getItems().add("Defects");
-		effortCategory.getItems().add("Others");
-		
-		deliverable.getItems().add("Conceptual Design");
-		deliverable.getItems().add("Detailed Design");
-		deliverable.getItems().add("Test Cases");
-		deliverable.getItems().add("Solution");						
-		deliverable.getItems().add("Reflection");
-		deliverable.getItems().add("Outline");
-		deliverable.getItems().add("Draft");
-		deliverable.getItems().add("Report");
-//		deliverable.getItems().add("User Defined");	
-		deliverable.getItems().add("Other");
+		// aligns with design goal: the user selects from a set of dropdown options:
+		// 2d array of 100 strings for each of the 4 categories
+		String[][] definitions = new String[4][100];
+		definitions = ControllerEffortLoggerDefinitions.loadDefinitionsFile();
+		for (int i = 0; i < definitions[0].length; i++) {
+			if (!definitions[0][i].equals("null"))
+				projectType.getItems().add(definitions[0][i]);
+			if (!definitions[1][i].equals("null"))
+				lifeCycleStep.getItems().add(definitions[1][i]);
+			if (!definitions[2][i].equals("null"))
+				effortCategory.getItems().add(definitions[2][i]);
+			if (!definitions[3][i].equals("null"))
+				deliverable.getItems().add(definitions[3][i]);
+		}
 	}
 	
 	// timer start button:
@@ -232,4 +200,11 @@ public class ControllerEffortLoggerConsole {
 		m.changeScene("effortLoggerLogs.fxml");
 	}
 	
+	
+	@FXML private Text definitionsButton;
+	public void enterDefinitions(MouseEvent event) throws IOException{
+		labelTimer.cancel();
+		Main m = new Main();
+		m.changeScene("effortLoggerDefinitions.fxml");
+	}
 }

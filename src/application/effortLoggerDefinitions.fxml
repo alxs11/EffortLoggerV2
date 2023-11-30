@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerEffortLoggerDefinitions">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="179.0" layoutY="43.0" prefHeight="54.0" prefWidth="358.0" text="Effort Logger v2.0. Definitions">
+         <font>
+            <Font name="Corbel" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="140.0" layoutY="115.0" text="Project Type:" />
+      <Label layoutX="315.0" layoutY="115.0" text="Life Cycle Step:" />
+      <Label layoutX="490.0" layoutY="115.0" text="Effort Category:" />
+      <Label layoutX="665.0" layoutY="115.0" text="Deliverable/etc.:" />
+      <Pane layoutY="-1.0" prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;">
+         <children>
+            <Text fx:id="saveButton" layoutX="27.0" layoutY="479.0" onMousePressed="#saveClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="Save" wrappingWidth="80.0">
+               <font>
+                  <Font name="Corbel Light" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <TextArea fx:id="projectType" layoutX="140.0" layoutY="149.0" prefHeight="340.0" prefRowCount="100" prefWidth="130.0" />
+      <TextArea fx:id="lifeCycleStep" layoutX="315.0" layoutY="149.0" prefHeight="340.0" prefRowCount="100" prefWidth="130.0" />
+      <TextArea fx:id="effortCategory" layoutX="490.0" layoutY="150.0" prefHeight="340.0" prefRowCount="100" prefWidth="130.0" />
+      <TextArea fx:id="deliverable" layoutX="665.0" layoutY="149.0" prefHeight="340.0" prefRowCount="100" prefWidth="130.0" />
+   </children>
+</AnchorPane>

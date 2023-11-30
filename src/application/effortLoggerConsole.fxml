@@ -15,29 +15,29 @@
             <Font name="Corbel" size="28.0" />
          </font>
       </Label>
-      <Button fx:id="newActivity" layoutX="207.0" layoutY="182.0" mnemonicParsing="false" onAction="#newActivity" text="New Activity">
+      <Button fx:id="newActivity" layoutX="200.0" layoutY="180.0" mnemonicParsing="false" onAction="#newActivity" prefWidth="100.0" text="New Activity">
          <font>
             <Font name="Corbel" size="12.0" />
          </font></Button>
-      <Button fx:id="stopActivity" layoutX="206.0" layoutY="221.0" mnemonicParsing="false" onAction="#stopActivity" text="Stop Activity">
+      <Button fx:id="stopActivity" layoutX="200.0" layoutY="220.0" mnemonicParsing="false" onAction="#stopActivity" prefWidth="100.0" text="Stop Activity">
          <font>
             <Font name="Corbel" size="12.0" />
          </font></Button>
-      <Label layoutX="341.0" layoutY="182.0" text="Project Type:">
+      <Label layoutX="350.0" layoutY="180.0" text="Project Type:">
          <font>
             <Font name="Corbel" size="12.0" />
          </font></Label>
-      <Label layoutX="341.0" layoutY="217.0" text="Life Cycle Step:">
+      <Label layoutX="350.0" layoutY="220.0" text="Life Cycle Step:">
          <font>
             <Font name="Corbel" size="12.0" />
          </font></Label>
-      <Label layoutX="339.0" layoutY="255.0" text="Effort Category:" />
-      <Label layoutX="344.0" layoutY="291.0" text="Deliverable:" />
-      <ChoiceBox fx:id="projectType" layoutX="450.0" layoutY="178.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="lifeCycleStep" layoutX="450.0" layoutY="213.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="effortCategory" layoutX="450.0" layoutY="251.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="deliverable" layoutX="450.0" layoutY="287.0" prefWidth="150.0" />
-      <Label fx:id="elapsedTime" layoutX="206.0" layoutY="414.0" text="Elapsed Time:" />
+      <Label layoutX="350.0" layoutY="260.0" text="Effort Category:" />
+      <Label layoutX="350.0" layoutY="300.0" text="Deliverable/etc.:" />
+      <ChoiceBox fx:id="projectType" layoutX="450.0" layoutY="175.0" prefWidth="200.0" />
+      <ChoiceBox fx:id="lifeCycleStep" layoutX="450.0" layoutY="215.0" prefWidth="200.0" />
+      <ChoiceBox fx:id="effortCategory" layoutX="450.0" layoutY="255.0" prefWidth="200.0" />
+      <ChoiceBox fx:id="deliverable" layoutX="450.0" layoutY="295.0" prefWidth="200.0" />
+      <Label fx:id="elapsedTime" layoutX="200.0" layoutY="414.0" text="Elapsed Time:" />
       <Button fx:id="employeeList" layoutX="559.0" layoutY="410.0" mnemonicParsing="false" onAction="#employeeListPage" prefHeight="26.0" prefWidth="133.0" text="List of Employees" />
       <Pane layoutY="-1.0" prefHeight="500.0" prefWidth="134.0" style="-fx-background-color: #dddddd;">
          <children>
@@ -61,7 +61,7 @@
                   <Font name="Corbel Light" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="18.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
+            <Text fx:id="definitionsButton" layoutX="18.0" layoutY="210.0" onMouseClicked="#enterDefinitions" strokeType="OUTSIDE" strokeWidth="0.0" text="Definitions" wrappingWidth="97.60000610351562">
                <font>
                   <Font name="Corbel Light" size="16.0" />
                </font>
